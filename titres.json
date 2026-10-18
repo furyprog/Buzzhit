@@ -47,7 +47,8 @@
   "year": 1960,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 50
+  "vol": 50,
+  "surnoms": "Piaf|La Môme"
  },
  {
   "id": "mul1keh5",
@@ -57,7 +58,8 @@
   "year": 1960,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Elvis|Le King"
  },
  {
   "id": "mul1vfua",
@@ -67,7 +69,8 @@
   "year": 1960,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Elvis|Le King"
  },
  {
   "id": "mul132ho",
@@ -87,7 +90,8 @@
   "year": 1960,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 27
+  "vol": 27,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1dfov",
@@ -177,7 +181,8 @@
   "year": 1961,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 26
+  "vol": 26,
+  "surnoms": "Aznavour"
  },
  {
   "id": "mul1xo9t",
@@ -207,7 +212,8 @@
   "year": 1961,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 33
+  "vol": 33,
+  "surnoms": "Elvis|Le King"
  },
  {
   "id": "mul1q5v7",
@@ -237,7 +243,8 @@
   "year": 1961,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul18ksz",
@@ -357,7 +364,8 @@
   "year": 1962,
   "genre": "Soul / R&B / Funk",
   "langue": "Anglais",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Booker T."
  },
  {
   "id": "mul17c7b",
@@ -377,7 +385,8 @@
   "year": 1962,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 39
+  "vol": 39,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul1pj1e+54:1363",
@@ -387,7 +396,8 @@
   "year": 1962,
   "genre": "B.O. Films / Séries",
   "langue": "Instrumental",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Dick Dale"
  },
  {
   "id": "mul1c37r",
@@ -407,7 +417,8 @@
   "year": 1962,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul125lz",
@@ -527,7 +538,8 @@
   "year": 1963,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul19zqy",
@@ -567,7 +579,8 @@
   "year": 1963,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 14
+  "vol": 14,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1v2y4",
@@ -577,7 +590,8 @@
   "year": 1963,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1sg65",
@@ -737,7 +751,8 @@
   "year": 1964,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Salvatore Adamo"
  },
  {
   "id": "mul18w2m",
@@ -747,7 +762,8 @@
   "year": 1964,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 38
+  "vol": 38,
+  "surnoms": "Aznavour"
  },
  {
   "id": "mul1c7hr",
@@ -767,7 +783,8 @@
   "year": 1964,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 31
+  "vol": 31,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul1dv56",
@@ -797,7 +814,8 @@
   "year": 1964,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 45
+  "vol": 45,
+  "surnoms": "Brel"
  },
  {
   "id": "mul1vwwu",
@@ -807,7 +825,8 @@
   "year": 1964,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 40
+  "vol": 40,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1i10k",
@@ -937,7 +956,8 @@
   "year": 1964,
   "genre": "Soul / R&B / Funk",
   "langue": "Anglais",
-  "vol": 30
+  "vol": 30,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul1tb94",
@@ -1007,7 +1027,8 @@
   "year": 1965,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 35
+  "vol": 35,
+  "surnoms": "Gary Lewis"
  },
  {
   "id": "mul1i8xo",
@@ -1027,7 +1048,8 @@
   "year": 1965,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Dutronc"
  },
  {
   "id": "mul1cpkj",
@@ -1037,7 +1059,8 @@
   "year": 1965,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 67
+  "vol": 67,
+  "surnoms": "Delpech"
  },
  {
   "id": "mul1v1mz",
@@ -1047,7 +1070,8 @@
   "year": 1965,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 31
+  "vol": 31,
+  "surnoms": "Adamo"
  },
  {
   "id": "mul17g2r",
@@ -1157,7 +1181,8 @@
   "year": 1965,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul10fod",
@@ -1167,7 +1192,8 @@
   "year": 1965,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul1os9x",
@@ -1227,7 +1253,8 @@
   "year": 1966,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Dutronc"
  },
  {
   "id": "mul1zcot",
@@ -1237,7 +1264,8 @@
   "year": 1966,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Dutronc"
  },
  {
   "id": "mul1b3d5",
@@ -1247,7 +1275,8 @@
   "year": 1966,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 26
+  "vol": 26,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul165r9",
@@ -1277,7 +1306,8 @@
   "year": 1966,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 51
+  "vol": 51,
+  "surnoms": "Polnareff"
  },
  {
   "id": "mul11b0z",
@@ -1407,7 +1437,8 @@
   "year": 1966,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul15tgs",
@@ -1447,7 +1478,8 @@
   "year": 1967,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 50
+  "vol": 50,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul1mgvu",
@@ -1487,7 +1519,8 @@
   "year": 1967,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Dutronc"
  },
  {
   "id": "mul1wj0t",
@@ -1497,7 +1530,8 @@
   "year": 1967,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 30
+  "vol": 30,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1djrw",
@@ -1597,7 +1631,8 @@
   "year": 1967,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul1z15b",
@@ -1657,7 +1692,8 @@
   "year": 1968,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Gary Puckett"
  },
  {
   "id": "mul1qpgb",
@@ -1667,7 +1703,8 @@
   "year": 1968,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Dutronc"
  },
  {
   "id": "mul1ck88",
@@ -1677,7 +1714,8 @@
   "year": 1968,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Dutronc"
  },
  {
   "id": "mul1juii",
@@ -1707,7 +1745,8 @@
   "year": 1968,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 36
+  "vol": 36,
+  "surnoms": "Adamo"
  },
  {
   "id": "mul1bplj",
@@ -1717,7 +1756,8 @@
   "year": 1968,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 38
+  "vol": 38,
+  "surnoms": "Gainsbourg|Gainsbarre"
  },
  {
   "id": "mul1xaji",
@@ -1837,7 +1877,8 @@
   "year": 1968,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 49
+  "vol": 49,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul167j2",
@@ -1857,7 +1898,8 @@
   "year": 1969,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Creedence|CCR"
  },
  {
   "id": "mul1wm31",
@@ -1867,7 +1909,8 @@
   "year": 1969,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 35
+  "vol": 35,
+  "surnoms": "Creedence|CCR"
  },
  {
   "id": "mul101te",
@@ -1877,7 +1920,8 @@
   "year": 1969,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 20
+  "vol": 20,
+  "surnoms": "Elvis|Le King"
  },
  {
   "id": "mul1nolj",
@@ -1887,7 +1931,8 @@
   "year": 1969,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 34
+  "vol": 34,
+  "surnoms": "Enrico|Macias"
  },
  {
   "id": "mul1dwwo",
@@ -1897,7 +1942,8 @@
   "year": 1969,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Dutronc"
  },
  {
   "id": "mul10dk0",
@@ -1927,7 +1973,8 @@
   "year": 1969,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1zja8",
@@ -1947,7 +1994,8 @@
   "year": 1969,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Delpech"
  },
  {
   "id": "mul17src",
@@ -2047,7 +2095,8 @@
   "year": 1969,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul19mx2",
@@ -2107,7 +2156,8 @@
   "year": 1970,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Creedence|CCR"
  },
  {
   "id": "mul1e2gj",
@@ -2147,7 +2197,8 @@
   "year": 1970,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 38
+  "vol": 38,
+  "surnoms": "Lennon"
  },
  {
   "id": "mul1rwr9",
@@ -2187,7 +2238,8 @@
   "year": 1970,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 32
+  "vol": 32,
+  "surnoms": "Delpech"
  },
  {
   "id": "mul18cqk",
@@ -2197,7 +2249,8 @@
   "year": 1970,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 44
+  "vol": 44,
+  "surnoms": "McCartney"
  },
  {
   "id": "mul1xj37",
@@ -2257,7 +2310,8 @@
   "year": 1971,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 49
+  "vol": 49,
+  "surnoms": "Bowie"
  },
  {
   "id": "mul1vbgr",
@@ -2267,7 +2321,8 @@
   "year": 1971,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 45
+  "vol": 45,
+  "surnoms": "Bowie"
  },
  {
   "id": "mul1utox",
@@ -2297,7 +2352,8 @@
   "year": 1971,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Lennon"
  },
  {
   "id": "mul1in3o",
@@ -2307,7 +2363,8 @@
   "year": 1971,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 33
+  "vol": 33,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1jz0i",
@@ -2347,7 +2404,8 @@
   "year": 1971,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Delpech"
  },
  {
   "id": "mul12ezc",
@@ -2417,7 +2475,8 @@
   "year": 1971,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul1k9qm",
@@ -2447,7 +2506,8 @@
   "year": 1972,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 54
+  "vol": 54,
+  "surnoms": "Bowie"
  },
  {
   "id": "mul1ods1",
@@ -2527,7 +2587,8 @@
   "year": 1972,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Delpech"
  },
  {
   "id": "mul187j5",
@@ -2537,7 +2598,8 @@
   "year": 1972,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 26
+  "vol": 26,
+  "surnoms": "Sardou"
  },
  {
   "id": "mul1pr42",
@@ -2637,7 +2699,8 @@
   "year": 1972,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 24
+  "vol": 24,
+  "surnoms": "Sanson"
  },
  {
   "id": "mul14qdb",
@@ -2647,7 +2710,8 @@
   "year": 1972,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 44
+  "vol": 44,
+  "surnoms": "Sanson"
  },
  {
   "id": "mul18hke",
@@ -2657,7 +2721,8 @@
   "year": 1972,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 45
+  "vol": 45,
+  "surnoms": "Sanson"
  },
  {
   "id": "mul1c4d1",
@@ -2737,7 +2802,8 @@
   "year": 1973,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Sardou"
  },
  {
   "id": "mul13oby",
@@ -2747,7 +2813,8 @@
   "year": 1973,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Sardou"
  },
  {
   "id": "mul1soyg",
@@ -2767,7 +2834,8 @@
   "year": 1973,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 31
+  "vol": 31,
+  "surnoms": "Paul McCartney|McCartney"
  },
  {
   "id": "mul1g0fn",
@@ -2777,7 +2845,8 @@
   "year": 1973,
   "genre": "B.O. Films / Séries",
   "langue": "Anglais",
-  "vol": 100
+  "vol": 100,
+  "surnoms": "Paul McCartney|McCartney"
  },
  {
   "id": "mul14t60",
@@ -2807,7 +2876,8 @@
   "year": 1973,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 41
+  "vol": 41,
+  "surnoms": "Gainsbourg|Gainsbarre"
  },
  {
   "id": "mul1d7yx",
@@ -2847,7 +2917,8 @@
   "year": 1973,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 60
+  "vol": 60,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul19yec",
@@ -2867,7 +2938,8 @@
   "year": 1974,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 41
+  "vol": 41,
+  "surnoms": "Souchon"
  },
  {
   "id": "mul14a3y",
@@ -2897,7 +2969,8 @@
   "year": 1974,
   "genre": "Reggae / Dancehall",
   "langue": "Anglais",
-  "vol": 48
+  "vol": 48,
+  "surnoms": "Bob Marley|Marley"
  },
  {
   "id": "mul1xv6c",
@@ -2917,7 +2990,8 @@
   "year": 1974,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul1yv37",
@@ -2987,7 +3061,8 @@
   "year": 1975,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 14
+  "vol": 14,
+  "surnoms": "Springsteen|Le Boss"
  },
  {
   "id": "mul14v1q",
@@ -2997,7 +3072,8 @@
   "year": 1975,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 58
+  "vol": 58,
+  "surnoms": "Springsteen|Le Boss"
  },
  {
   "id": "mul1vrct",
@@ -3017,7 +3093,8 @@
   "year": 1975,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 43
+  "vol": 43,
+  "surnoms": "Lenorman"
  },
  {
   "id": "mul1gh30",
@@ -3137,7 +3214,8 @@
   "year": 1976,
   "genre": "Électronique / Dance",
   "langue": "Français",
-  "vol": 27
+  "vol": 27,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul1y9v8",
@@ -3157,7 +3235,8 @@
   "year": 1976,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 70
+  "vol": 70,
+  "surnoms": "Lenorman"
  },
  {
   "id": "mul1b9lz",
@@ -3177,7 +3256,8 @@
   "year": 1976,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Sardou"
  },
  {
   "id": "mul1yvdq",
@@ -3217,7 +3297,8 @@
   "year": 1976,
   "genre": "Reggae / Dancehall",
   "langue": "Français",
-  "vol": 26
+  "vol": 26,
+  "surnoms": "Gainsbourg|Gainsbarre"
  },
  {
   "id": "mul1ezqa",
@@ -3297,7 +3378,8 @@
   "year": 1977,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "AC DC|ACDC"
  },
  {
   "id": "mul1rflq",
@@ -3307,7 +3389,8 @@
   "year": 1977,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 100
+  "vol": 100,
+  "surnoms": "Souchon"
  },
  {
   "id": "mul1gzui",
@@ -3357,7 +3440,8 @@
   "year": 1977,
   "genre": "Électronique / Dance",
   "langue": "Français",
-  "vol": 14
+  "vol": 14,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul12rnt",
@@ -3367,7 +3451,8 @@
   "year": 1977,
   "genre": "Électronique / Dance",
   "langue": "Français",
-  "vol": 43
+  "vol": 43,
+  "surnoms": "Cloclo"
  },
  {
   "id": "mul1ei92",
@@ -3377,7 +3462,8 @@
   "year": 1977,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 100
+  "vol": 100,
+  "surnoms": "Balavoine"
  },
  {
   "id": "mul1owf7",
@@ -3387,7 +3473,8 @@
   "year": 1977,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Bowie"
  },
  {
   "id": "mul1he7u",
@@ -3407,7 +3494,8 @@
   "year": 1977,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "ELO"
  },
  {
   "id": "mul11tnz",
@@ -3457,7 +3545,8 @@
   "year": 1977,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 100
+  "vol": 100,
+  "surnoms": "Cabrel"
  },
  {
   "id": "mul111bd",
@@ -3617,7 +3706,8 @@
   "year": 1978,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Souchon"
  },
  {
   "id": "mul12zcf",
@@ -3657,7 +3747,8 @@
   "year": 1978,
   "genre": "Reggae / Dancehall",
   "langue": "Anglais",
-  "vol": 36
+  "vol": 36,
+  "surnoms": "Bob Marley|Marley"
  },
  {
   "id": "mul1omtz",
@@ -3667,7 +3758,8 @@
   "year": 1978,
   "genre": "Reggae / Dancehall",
   "langue": "Anglais",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Bob Marley|Marley"
  },
  {
   "id": "mul1j4pn",
@@ -3807,7 +3899,8 @@
   "year": 1978,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 35
+  "vol": 35,
+  "surnoms": "Stones|Les Stones"
  },
  {
   "id": "mul1eqah",
@@ -3837,7 +3930,8 @@
   "year": 1979,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 54
+  "vol": 54,
+  "surnoms": "AC DC|ACDC"
  },
  {
   "id": "mul14wsq",
@@ -3907,7 +4001,8 @@
   "year": 1979,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "ELO"
  },
  {
   "id": "mul1nrxd",
@@ -3917,7 +4012,8 @@
   "year": 1979,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 72
+  "vol": 72,
+  "surnoms": "Cabrel"
  },
  {
   "id": "mul1cwi6",
@@ -3927,7 +4023,8 @@
   "year": 1979,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1zf8a",
@@ -3977,7 +4074,8 @@
   "year": 1979,
   "genre": "Reggae / Dancehall",
   "langue": "Français",
-  "vol": 49
+  "vol": 49,
+  "surnoms": "Gainsbourg|Gainsbarre"
  },
  {
   "id": "mul1ipps",
@@ -3987,7 +4085,8 @@
   "year": 1979,
   "genre": "Électronique / Dance",
   "langue": "Anglais",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Sheila"
  },
  {
   "id": "mul1l2qg",
@@ -4087,7 +4186,8 @@
   "year": 1980,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "AC DC|ACDC"
  },
  {
   "id": "mul1gk6t",
@@ -4097,7 +4197,8 @@
   "year": 1980,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 32
+  "vol": 32,
+  "surnoms": "AC DC|ACDC"
  },
  {
   "id": "mul19aaw",
@@ -4107,7 +4208,8 @@
   "year": 1980,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 35
+  "vol": 35,
+  "surnoms": "Bashung"
  },
  {
   "id": "mul17fov",
@@ -4127,7 +4229,8 @@
   "year": 1980,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 36
+  "vol": 36,
+  "surnoms": "Balavoine"
  },
  {
   "id": "mul1tp7b",
@@ -4217,7 +4320,8 @@
   "year": 1980,
   "genre": "Électronique / Dance",
   "langue": "Anglais",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "OMD"
  },
  {
   "id": "mul12rwg",
@@ -4297,7 +4401,8 @@
   "year": 1981,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 35
+  "vol": 35,
+  "surnoms": "Bashung"
  },
  {
   "id": "mul19dde",
@@ -4357,7 +4462,8 @@
   "year": 1981,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Joan Jett"
  },
  {
   "id": "mul1flul",
@@ -4397,7 +4503,8 @@
   "year": 1981,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 34
+  "vol": 34,
+  "surnoms": "Sardou"
  },
  {
   "id": "mul1pjrh",
@@ -4407,7 +4514,8 @@
   "year": 1981,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 53
+  "vol": 53,
+  "surnoms": "Sardou"
  },
  {
   "id": "mul1ala7",
@@ -4587,7 +4695,8 @@
   "year": 1982,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 20
+  "vol": 20,
+  "surnoms": "Goldman"
  },
  {
   "id": "mul1sq0o",
@@ -4617,7 +4726,8 @@
   "year": 1982,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 32
+  "vol": 32,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul1weeh",
@@ -4627,7 +4737,8 @@
   "year": 1982,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul106nk",
@@ -4637,7 +4748,8 @@
   "year": 1982,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 63
+  "vol": 63,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul1z0jk",
@@ -4657,7 +4769,8 @@
   "year": 1982,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Bachelet"
  },
  {
   "id": "mul1xq7b",
@@ -4667,7 +4780,8 @@
   "year": 1982,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 41
+  "vol": 41,
+  "surnoms": "Bachelet"
  },
  {
   "id": "mul19yo1",
@@ -4807,7 +4921,8 @@
   "year": 1983,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 16
+  "vol": 16,
+  "surnoms": "Bowie"
  },
  {
   "id": "mul12c9t",
@@ -4817,7 +4932,8 @@
   "year": 1983,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 24
+  "vol": 24,
+  "surnoms": "Bowie"
  },
  {
   "id": "mul1b0oi",
@@ -5167,7 +5283,8 @@
   "year": 1984,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 24
+  "vol": 24,
+  "surnoms": "Springsteen|Le Boss"
  },
  {
   "id": "mul10w10",
@@ -5177,7 +5294,8 @@
   "year": 1984,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Springsteen|Le Boss"
  },
  {
   "id": "mul1q5u6",
@@ -5227,7 +5345,8 @@
   "year": 1984,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 42
+  "vol": 42,
+  "surnoms": "Daho"
  },
  {
   "id": "mul1ntdr",
@@ -5297,7 +5416,8 @@
   "year": 1984,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 78
+  "vol": 78,
+  "surnoms": "Goldman"
  },
  {
   "id": "mul11cqg",
@@ -5307,7 +5427,8 @@
   "year": 1984,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Goldman"
  },
  {
   "id": "mul1z4qk",
@@ -5637,7 +5758,8 @@
   "year": 1985,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 62
+  "vol": 62,
+  "surnoms": "Balavoine"
  },
  {
   "id": "mul19tze",
@@ -5647,7 +5769,8 @@
   "year": 1985,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 51
+  "vol": 51,
+  "surnoms": "Balavoine"
  },
  {
   "id": "mul1aih0",
@@ -5657,7 +5780,8 @@
   "year": 1985,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 79
+  "vol": 79,
+  "surnoms": "Balavoine"
  },
  {
   "id": "mul15cri",
@@ -5737,7 +5861,8 @@
   "year": 1985,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 27
+  "vol": 27,
+  "surnoms": "Goldman"
  },
  {
   "id": "mul1dd1v",
@@ -5747,7 +5872,8 @@
   "year": 1985,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 100
+  "vol": 100,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1fiee",
@@ -5767,7 +5893,8 @@
   "year": 1985,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 27
+  "vol": 27,
+  "surnoms": "Lavoine"
  },
  {
   "id": "mul1kkhz",
@@ -5787,7 +5914,8 @@
   "year": 1985,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Sardou"
  },
  {
   "id": "mul151ob",
@@ -5907,7 +6035,8 @@
   "year": 1985,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 62
+  "vol": 62,
+  "surnoms": "Whitney"
  },
  {
   "id": "mul1t7s1",
@@ -6067,7 +6196,8 @@
   "year": 1986,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 83
+  "vol": 83,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul18zov",
@@ -6077,7 +6207,8 @@
   "year": 1986,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 58
+  "vol": 58,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul14n89",
@@ -6087,7 +6218,8 @@
   "year": 1986,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 74
+  "vol": 74,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1u7my",
@@ -6137,7 +6269,8 @@
   "year": 1986,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Lavoine"
  },
  {
   "id": "mul18wze",
@@ -6327,7 +6460,8 @@
   "year": 1987,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Guns and Roses|Guns"
  },
  {
   "id": "mul1vt99",
@@ -6337,7 +6471,8 @@
   "year": 1987,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Guns and Roses|Guns"
  },
  {
   "id": "mul1ahxt",
@@ -6377,7 +6512,8 @@
   "year": 1987,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 14
+  "vol": 14,
+  "surnoms": "Goldman"
  },
  {
   "id": "mul1katq",
@@ -6397,7 +6533,8 @@
   "year": 1987,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul1mzsg",
@@ -6407,7 +6544,8 @@
   "year": 1987,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul1tgxn",
@@ -6547,7 +6685,8 @@
   "year": 1987,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Whitney"
  },
  {
   "id": "mul1x1ox",
@@ -6697,7 +6836,8 @@
   "year": 1988,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Daho"
  },
  {
   "id": "mul1vz41",
@@ -6877,7 +7017,8 @@
   "year": 1989,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 56
+  "vol": 56,
+  "surnoms": "Bruel"
  },
  {
   "id": "mul19ier",
@@ -7027,7 +7168,8 @@
   "year": 1990,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 38
+  "vol": 38,
+  "surnoms": "Daho"
  },
  {
   "id": "mul1hhcm",
@@ -7087,7 +7229,8 @@
   "year": 1990,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 55
+  "vol": 55,
+  "surnoms": "Solaar"
  },
  {
   "id": "mul14lta",
@@ -7287,7 +7430,8 @@
   "year": 1991,
   "genre": "Soul / R&B / Funk",
   "langue": "Anglais",
-  "vol": 24
+  "vol": 24,
+  "surnoms": "Red Hot|RHCP"
  },
  {
   "id": "mul1nsrt",
@@ -7357,7 +7501,8 @@
   "year": 1992,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 20
+  "vol": 20,
+  "surnoms": "Docteur Dre|Dre"
  },
  {
   "id": "mul1c856",
@@ -7397,7 +7542,8 @@
   "year": 1992,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 100
+  "vol": 100,
+  "surnoms": "Solaar"
  },
  {
   "id": "mul13cup",
@@ -7507,7 +7653,8 @@
   "year": 1992,
   "genre": "Variété / Chanson",
   "langue": "Anglais",
-  "vol": 24
+  "vol": 24,
+  "surnoms": "Whitney"
  },
  {
   "id": "mul1ul6l",
@@ -7517,7 +7664,8 @@
   "year": 1992,
   "genre": "B.O. Films / Séries",
   "langue": "Anglais",
-  "vol": 72
+  "vol": 72,
+  "surnoms": "Whitney"
  },
  {
   "id": "mul1ftlo",
@@ -7537,7 +7685,8 @@
   "year": 1993,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 45
+  "vol": 45,
+  "surnoms": "Souchon"
  },
  {
   "id": "mul1waou",
@@ -7707,7 +7856,8 @@
   "year": 1993,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 82
+  "vol": 82,
+  "surnoms": "Obispo"
  },
  {
   "id": "mul1fnko",
@@ -7917,7 +8067,8 @@
   "year": 1994,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 27
+  "vol": 27,
+  "surnoms": "Aubert"
  },
  {
   "id": "mul1j66c",
@@ -7937,7 +8088,8 @@
   "year": 1994,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 37
+  "vol": 37,
+  "surnoms": "Solaar"
  },
  {
   "id": "mul14k5o",
@@ -7947,7 +8099,8 @@
   "year": 1994,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 47
+  "vol": 47,
+  "surnoms": "Solaar"
  },
  {
   "id": "mul1eaxy",
@@ -7997,7 +8150,8 @@
   "year": 1994,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Biggie|Notorious"
  },
  {
   "id": "mul1yt91",
@@ -8077,7 +8231,8 @@
   "year": 1995,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 16
+  "vol": 16,
+  "surnoms": "Tupac"
  },
  {
   "id": "mul1lnfx",
@@ -8127,7 +8282,8 @@
   "year": 1995,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 50
+  "vol": 50,
+  "surnoms": "Céline"
  },
  {
   "id": "mul1vyb6",
@@ -8167,7 +8323,8 @@
   "year": 1995,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 13
+  "vol": 13,
+  "surnoms": "Pagny"
  },
  {
   "id": "mul1rftm",
@@ -8207,7 +8364,8 @@
   "year": 1995,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 100
+  "vol": 100,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul1xhw0",
@@ -8217,7 +8375,8 @@
   "year": 1995,
   "genre": "Soul / R&B / Funk",
   "langue": "Anglais",
-  "vol": 44
+  "vol": 44,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul11cjf",
@@ -8327,7 +8486,8 @@
   "year": 1996,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Tupac"
  },
  {
   "id": "mul1fwbu",
@@ -8347,7 +8507,8 @@
   "year": 1996,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Gynéco"
  },
  {
   "id": "mul1kxdr",
@@ -8357,7 +8518,8 @@
   "year": 1996,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Gynéco"
  },
  {
   "id": "mul1448n",
@@ -8397,7 +8559,8 @@
   "year": 1996,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 36
+  "vol": 36,
+  "surnoms": "Obispo"
  },
  {
   "id": "mul1rmhr",
@@ -8407,7 +8570,8 @@
   "year": 1996,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 42
+  "vol": 42,
+  "surnoms": "Obispo"
  },
  {
   "id": "mul153yk",
@@ -8567,7 +8731,8 @@
   "year": 1997,
   "genre": "B.O. Films / Séries",
   "langue": "Anglais",
-  "vol": 77
+  "vol": 77,
+  "surnoms": "Céline"
  },
  {
   "id": "mul15tao",
@@ -8617,7 +8782,8 @@
   "year": 1997,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 31
+  "vol": 31,
+  "surnoms": "Pagny"
  },
  {
   "id": "mul18mdd",
@@ -8657,7 +8823,8 @@
   "year": 1997,
   "genre": "B.O. Films / Séries",
   "langue": "Anglais",
-  "vol": 57
+  "vol": 57,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "mul153lc",
@@ -8667,7 +8834,8 @@
   "year": 1997,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 13
+  "vol": 13,
+  "surnoms": "Biggie|Notorious"
  },
  {
   "id": "mul17tw1",
@@ -8707,7 +8875,8 @@
   "year": 1997,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Diddy|P. Diddy"
  },
  {
   "id": "mul19ptk",
@@ -8797,7 +8966,8 @@
   "year": 1998,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 20
+  "vol": 20,
+  "surnoms": "Britney"
  },
  {
   "id": "mul11zlb",
@@ -8837,7 +9007,8 @@
   "year": 1998,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul1yt8q",
@@ -8987,7 +9158,8 @@
   "year": 1999,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 20
+  "vol": 20,
+  "surnoms": "Britney"
  },
  {
   "id": "mul17ujo",
@@ -9017,7 +9189,8 @@
   "year": 1999,
   "genre": "B.O. Films / Séries",
   "langue": "Français",
-  "vol": 38
+  "vol": 38,
+  "surnoms": "Goldman"
  },
  {
   "id": "mul1313f",
@@ -9097,7 +9270,8 @@
   "year": 1999,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Red Hot|RHCP"
  },
  {
   "id": "mul1gqpk",
@@ -9217,7 +9391,8 @@
   "year": 2000,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Britney"
  },
  {
   "id": "mul1ewlg",
@@ -9317,7 +9492,8 @@
   "year": 2000,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Red Hot|RHCP"
  },
  {
   "id": "mul1g02u",
@@ -9417,7 +9593,8 @@
   "year": 2001,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 16
+  "vol": 16,
+  "surnoms": "Aubert"
  },
  {
   "id": "mul1rrpz",
@@ -9497,7 +9674,8 @@
   "year": 2001,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Solaar"
  },
  {
   "id": "mul1yxr2",
@@ -9627,7 +9805,8 @@
   "year": 2002,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 27
+  "vol": 27,
+  "surnoms": "Calo"
  },
  {
   "id": "mul1gv3z",
@@ -9637,7 +9816,8 @@
   "year": 2002,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 31
+  "vol": 31,
+  "surnoms": "Calo"
  },
  {
   "id": "mul1ljef",
@@ -9717,7 +9897,8 @@
   "year": 2002,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 59
+  "vol": 59,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul19el8",
@@ -9867,7 +10048,8 @@
   "year": 2003,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 16
+  "vol": 16,
+  "surnoms": "Britney"
  },
  {
   "id": "mul1mabs",
@@ -9877,7 +10059,8 @@
   "year": 2003,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Diams"
  },
  {
   "id": "mul17n8l",
@@ -9917,7 +10100,8 @@
   "year": 2003,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Pagny"
  },
  {
   "id": "mul16g29",
@@ -9947,7 +10131,8 @@
   "year": 2003,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 35
+  "vol": 35,
+  "surnoms": "Aubert"
  },
  {
   "id": "mul1qe37",
@@ -9957,7 +10142,8 @@
   "year": 2003,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 14
+  "vol": 14,
+  "surnoms": "Kanye|Ye"
  },
  {
   "id": "mul1ahk2",
@@ -9987,7 +10173,8 @@
   "year": 2003,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 62
+  "vol": 62,
+  "surnoms": "M|Em|Aime|Emme|Hem|Chedid"
  },
  {
   "id": "mul145bg",
@@ -9997,7 +10184,8 @@
   "year": 2003,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "M|Em|Aime|Emme|Hem|Chedid"
  },
  {
   "id": "mul1qkns",
@@ -10007,7 +10195,8 @@
   "year": 2003,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 34
+  "vol": 34,
+  "surnoms": "M|Em|Aime|Emme|Hem|Chedid"
  },
  {
   "id": "mul112pg",
@@ -10047,7 +10236,8 @@
   "year": 2003,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 68
+  "vol": 68,
+  "surnoms": "Obispo"
  },
  {
   "id": "mul1j49i",
@@ -10147,7 +10337,8 @@
   "year": 2004,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 26
+  "vol": 26,
+  "surnoms": "Calo"
  },
  {
   "id": "mul1bzug",
@@ -10157,7 +10348,8 @@
   "year": 2004,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 88
+  "vol": 88,
+  "surnoms": "Calo"
  },
  {
   "id": "mul1iui9",
@@ -10167,7 +10359,8 @@
   "year": 2004,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 14
+  "vol": 14,
+  "surnoms": "Calo"
  },
  {
   "id": "mul1yp04",
@@ -10247,7 +10440,8 @@
   "year": 2004,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Kanye|Ye"
  },
  {
   "id": "mul178ra",
@@ -10537,7 +10731,8 @@
   "year": 2005,
   "genre": "Dessins animés",
   "langue": "Anglais",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Will I Am"
  },
  {
   "id": "mul1togn",
@@ -10607,7 +10802,8 @@
   "year": 2006,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 77
+  "vol": 77,
+  "surnoms": "Diams"
  },
  {
   "id": "mul11p0v",
@@ -10717,7 +10913,8 @@
   "year": 2006,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Red Hot|RHCP"
  },
  {
   "id": "mul1u8io",
@@ -10727,7 +10924,8 @@
   "year": 2006,
   "genre": "Soul / R&B / Funk",
   "langue": "Français",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Shym"
  },
  {
   "id": "mul1pecn",
@@ -10737,7 +10935,8 @@
   "year": 2006,
   "genre": "Soul / R&B / Funk",
   "langue": "Français",
-  "vol": 34
+  "vol": 34,
+  "surnoms": "Shym"
  },
  {
   "id": "mul1u7f0",
@@ -10787,7 +10986,8 @@
   "year": 2007,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Britney"
  },
  {
   "id": "mul19d31",
@@ -10797,7 +10997,8 @@
   "year": 2007,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Maé"
  },
  {
   "id": "mul1i15c",
@@ -10807,7 +11008,8 @@
   "year": 2007,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 45
+  "vol": 45,
+  "surnoms": "Maé"
  },
  {
   "id": "mul1rm6d",
@@ -10817,7 +11019,8 @@
   "year": 2007,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Maé"
  },
  {
   "id": "mul13dd0",
@@ -10827,7 +11030,8 @@
   "year": 2007,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Maé"
  },
  {
   "id": "mul13uvu",
@@ -10877,7 +11081,8 @@
   "year": 2007,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Kanye|Ye"
  },
  {
   "id": "mul1cfkj",
@@ -11047,7 +11252,8 @@
   "year": 2008,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Britney"
  },
  {
   "id": "mul1gd1t",
@@ -11057,7 +11263,8 @@
   "year": 2008,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Britney"
  },
  {
   "id": "mul18bix",
@@ -11407,7 +11614,8 @@
   "year": 2010,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 47
+  "vol": 47,
+  "surnoms": "Kesha"
  },
  {
   "id": "mul1u5wr",
@@ -11667,7 +11875,8 @@
   "year": 2011,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Pokora|Matt Pokora"
  },
  {
   "id": "mul1jgzl",
@@ -11817,7 +12026,8 @@
   "year": 2012,
   "genre": "Rap / Hip-Hop",
   "langue": "Anglais",
-  "vol": 50
+  "vol": 50,
+  "surnoms": "Macklemore"
  },
  {
   "id": "mul1u86z",
@@ -11877,7 +12087,8 @@
   "year": 2012,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Shym"
  },
  {
   "id": "mul1gstq",
@@ -11947,7 +12158,8 @@
   "year": 2013,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Maé"
  },
  {
   "id": "mul1x74d",
@@ -12057,7 +12269,8 @@
   "year": 2013,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 27
+  "vol": 27,
+  "surnoms": "Gims"
  },
  {
   "id": "mul15iqv",
@@ -12177,7 +12390,8 @@
   "year": 2014,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 24
+  "vol": 24,
+  "surnoms": "Calo"
  },
  {
   "id": "mul1yxfi",
@@ -12267,7 +12481,8 @@
   "year": 2014,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Français",
-  "vol": 16
+  "vol": 16,
+  "surnoms": "Johnny|Jojo|Hallyday"
  },
  {
   "id": "mul14l5z",
@@ -12287,7 +12502,8 @@
   "year": 2014,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 25
+  "vol": 25,
+  "surnoms": "Kendji"
  },
  {
   "id": "mul1be3y",
@@ -12297,7 +12513,8 @@
   "year": 2014,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 30
+  "vol": 30,
+  "surnoms": "Kendji"
  },
  {
   "id": "mul1nffy",
@@ -12537,7 +12754,8 @@
   "year": 2015,
   "genre": "Rap / Hip-Hop",
   "langue": "Français",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Gims"
  },
  {
   "id": "mul1m2o0",
@@ -12697,7 +12915,8 @@
   "year": 2016,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Maé"
  },
  {
   "id": "mul188qe",
@@ -12907,7 +13126,8 @@
   "year": 2017,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 13
+  "vol": 13,
+  "surnoms": "Calo"
  },
  {
   "id": "mul13qiu",
@@ -13117,7 +13337,8 @@
   "year": 2018,
   "genre": "Soul / R&B / Funk",
   "langue": "Français",
-  "vol": 21
+  "vol": 21,
+  "surnoms": "Aya"
  },
  {
   "id": "mul1uh17",
@@ -13427,7 +13648,8 @@
   "year": 2020,
   "genre": "Soul / R&B / Funk",
   "langue": "Français",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Aya"
  },
  {
   "id": "mul1lm34",
@@ -13837,7 +14059,8 @@
   "year": 2021,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 37
+  "vol": 37,
+  "surnoms": "Kendji"
  },
  {
   "id": "mul17r3o",
@@ -14037,7 +14260,8 @@
   "year": 2022,
   "genre": "Soul / R&B / Funk",
   "langue": "Français",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Aya"
  },
  {
   "id": "mul1gywi",
@@ -14127,7 +14351,8 @@
   "year": 2022,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 52
+  "vol": 52,
+  "surnoms": "Pagny"
  },
  {
   "id": "mul1gk2w",
@@ -14257,7 +14482,8 @@
   "year": 2022,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 37
+  "vol": 37,
+  "surnoms": "Pokora|Matt Pokora"
  },
  {
   "id": "mul1s0iu",
@@ -14267,7 +14493,8 @@
   "year": 2022,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 14
+  "vol": 14,
+  "surnoms": "Lavoine"
  },
  {
   "id": "mul19ue4",
@@ -14467,7 +14694,8 @@
   "year": 2023,
   "genre": "Soul / R&B / Funk",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Aya"
  },
  {
   "id": "mul1cjwt",
@@ -14777,7 +15005,8 @@
   "year": 2023,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 79
+  "vol": 79,
+  "surnoms": "Zaho"
  },
  {
   "id": "mul174x2",
@@ -15077,7 +15306,8 @@
   "year": 2024,
   "genre": "Variété / Chanson",
   "langue": "Français",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Zaho"
  },
  {
   "id": "mul1wx1e",
@@ -15237,7 +15467,8 @@
   "year": 1987,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "GsHZBisKwxg",
@@ -15247,7 +15478,8 @@
   "year": 1996,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 56
+  "vol": 56,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "MWnyCxva6bA",
@@ -15257,7 +15489,8 @@
   "year": 1979,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "UOUuVlQC5Y0",
@@ -15267,7 +15500,8 @@
   "year": 1992,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "aUD0juRwb3I",
@@ -15277,7 +15511,8 @@
   "year": 1988,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 22
+  "vol": 22,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "Y_8mUx4VOmo",
@@ -15287,7 +15522,8 @@
   "year": 2014,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 20
+  "vol": 20,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "OvzJZTkWYoY",
@@ -15297,7 +15533,8 @@
   "year": 1979,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 51
+  "vol": 51,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "n3qQtSRmHxo",
@@ -15307,7 +15544,8 @@
   "year": 1979,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 52
+  "vol": 52,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "ElN_4vUvTPs",
@@ -15317,7 +15555,8 @@
   "year": 1983,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 28
+  "vol": 28,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "DsJlttdkybk",
@@ -15327,7 +15566,8 @@
   "year": 1983,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 17
+  "vol": 17,
+  "surnoms": "Michael|Mickael"
  },
  {
   "id": "PmeLxaBNrAI",
@@ -15767,7 +16007,8 @@
   "year": 2015,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 40
+  "vol": 40,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "Rfhcng7Ux-A",
@@ -15777,7 +16018,8 @@
   "year": 2018,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 19
+  "vol": 19,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "0e3Q92uMn7o",
@@ -15787,7 +16029,8 @@
   "year": 2019,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 47
+  "vol": 47,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "0_6n0LH7Iis",
@@ -15807,7 +16050,8 @@
   "year": 2022,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 16
+  "vol": 16,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "aUjAD7g2JWA",
@@ -15827,7 +16071,8 @@
   "year": 2024,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 20
+  "vol": 20,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "QS0A-CjRdAE",
@@ -15837,7 +16082,8 @@
   "year": 2024,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 18
+  "vol": 18,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "-jm-OujiGYk",
@@ -15857,7 +16103,8 @@
   "year": 2025,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 15
+  "vol": 15,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "ifvd57oV3Ng",
@@ -15867,7 +16114,8 @@
   "year": 2015,
   "genre": "Pop",
   "langue": "Français",
-  "vol": 23
+  "vol": 23,
+  "surnoms": "Maître Gims"
  },
  {
   "id": "zzYqM8eXzLQ",
