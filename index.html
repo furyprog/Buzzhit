@@ -96,7 +96,7 @@ body.tvb .w{max-width:none;padding:1.5vw 2vw}body.tvb .cr{display:none}
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.0.29';
+const VERSION='2.0.30';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -600,9 +600,12 @@ return ws.every(x=>{const k=x.length==2?0:x.length<=6?1:Math.floor(x.length/4),v
 const sansArt=x=>x.replace(/^\s*(the|an?|les|le|la|l')\s+|^\s*l'\s*/i,'');
 /* réponse dite exactement (à l'orthographe près) : sinon elle a été acceptée avec tolérance et sera signalée « à vérifier » sur la page du podium */
 function fzExact(txt,cands){return [txt,fzNum(txt)].some(v=>{const w=fzW(v),T=w.join(''),st=new Set([0]),en=new Set();let p=0;w.forEach(x=>{p+=x.length;en.add(p);st.add(p)});return cands.some(c=>{const P=fzW(c).join('');return P&&apxSub(P,T,st,en)==0})})}
-function artExact(x,a){if(fzExact(x,artCands(a)))return true;const ps=String(a||'').split(/\s*(?:,|&|\+|\s(?:et|and|x|feat\.?|ft\.?|featuring|with|avec|vs\.?)\s)\s*/i).map(y=>y.trim()).filter(Boolean);return ps.length>1&&ps.every(y=>fzExact(x,[y,sansArt(y)]))}
+function artExact(x,a,s){if(s&&surL(s).some(n=>fzExact(x,[n])))return true;if(fzExact(x,artCands(a)))return true;const ps=String(a||'').split(/\s*(?:,|&|\+|\s(?:et|and|x|feat\.?|ft\.?|featuring|with|avec|vs\.?)\s)\s*/i).map(y=>y.trim()).filter(Boolean);return ps.length>1&&ps.every(y=>fzExact(x,[y,sansArt(y)]))}
 /* plusieurs artistes (« Gims et Morad », « Simon & Garfunkel », « Pitbull feat. Ne-Yo ») : les nommer tous, dans n'importe quel ordre et sans le « et », compte aussi */
-function artHit(x,a){if(fzHit(x,artCands(a)))return true;const ps=String(a||'').split(/\s*(?:,|&|\+|\s(?:et|and|x|feat\.?|ft\.?|featuring|with|avec|vs\.?)\s)\s*/i).map(y=>y.trim()).filter(Boolean);return ps.length>1&&ps.every(y=>fzHit(x,[y,sansArt(y)]))}
+/* surnoms (titres.json « surnoms » : a|b) : 4 lettres ou moins = mot exact, sinon même tolérance que le nom */
+function surL(s){return String(s||'').split('|').map(y=>y.trim()).filter(Boolean)}
+function surHit(x,s){return surL(s).some(n=>fzW(n).join('').length<=4?fzExact(x,[n]):fzHit(x,[n]))}
+function artHit(x,a,s){if(s&&surHit(x,s))return true;if(fzHit(x,artCands(a)))return true;const ps=String(a||'').split(/\s*(?:,|&|\+|\s(?:et|and|x|feat\.?|ft\.?|featuring|with|avec|vs\.?)\s)\s*/i).map(y=>y.trim()).filter(Boolean);return ps.length>1&&ps.every(y=>fzHit(x,[y,sansArt(y)]))}
 function artCands(a){a=String(a||'');const m=a.split(/\s+(?:feat\.?|ft\.?|featuring|with|avec|x|vs\.?)\s+/i)[0];return [...new Set([a,m,sansArt(a),sansArt(m)])]}
 /* « Film - Chanson » : le film seul ou la chanson seule comptent comme titre ; le texte entre parenthèses aussi
    (titre français ou nom du film, ex. « Despicable Me (Moi, moche et méchant) »), sauf « Theme », « générique »… */
@@ -614,7 +617,7 @@ let tot=0,cur=0,any=0;for(const w of t.split(' ')){if(w=='et'&&any)continue;if(w
 if(!any)return null;let y=tot+cur;if(y<100)y+=y>=30?1900:2000;return y>=1900&&y<=2100?y:null}
 /* côté hôte : réponse reçue du joueur qui a la main (ou de l'hôte lui-même) */
 function vocIn(n,m){if(!g||g.phase!='judge'||g.buzz[g.active]!=n||!g.cur)return;if(m.rn!=null&&(m.rn!=g.n||m.ac!=g.active))return;const al=(Array.isArray(m.alts)?m.alts:[]).map(x=>String(x||'').slice(0,200).trim()).filter(Boolean).slice(0,5),yr=g.j.a||g.j.t;if(!al.length)return;
-if(m.k=='r'&&!yr){let a=0,t=0;al.forEach(x=>{if(artHit(x,g.cur.artist))a=1;if(fzHit(x,titCands(g.cur.title)))t=1});g.va={n,txt:al[0],a,t,k:'r'};clearTimeout(vocT);
+if(m.k=='r'&&!yr){let a=0,t=0;al.forEach(x=>{if(artHit(x,g.cur.artist,g.cur.sur))a=1;if(fzHit(x,titCands(g.cur.title)))t=1});g.va={n,txt:al[0],a,t,k:'r'};clearTimeout(vocT);
 if(!a&&!t){snd('gong');g.exp=false;wrong();return}if(a)judge('a');if(t)judge('t');if(g.phase=='judge'&&YM()==2)rev();return}
 if(m.k=='y'&&yr&&YM()!=2&&g.tk=='yr'){let y=null;for(const x of al){y=yearOf(x);if(y)break}const d=y?Math.abs(y-g.cur.year):99;clearTimeout(vocT);g.va=Object.assign({},g.va,{k:'y',ytx:al[0],y,yp:(d==0?2:d<=SET.yd?1:0)*(g.bo?2:1)});yv=y?String(y):'';yearEnd()}}
 function vocLate(k){if(!g||g.phase!='judge'||g.n+'|'+g.active+'|'+g.tk!=k)return;const n=g.buzz[g.active];
@@ -797,7 +800,7 @@ function trainGo(){if(TR.phase!='ready')return;fold();if(BL)window.removeEventLi
 function trainBuzz(){if(TR.phase!='play')return;if(TR.defi)TR.fast=SET.maxD*1000-((TR.pf?TR.rem:TR.end-Date.now()))<=DEFI_FAST*1000;rmIframe();TR.bz++;TR.phase='think';TR.val=!TR.defi&&SET.sval==1;TR.xp=0;TR.end=Date.now()+SET.tRep*1000;TR.lt=0;snd('buzz');vib(80);trainRender()}
 /* entraînement : la réponse dictée (ou écrite) est vérifiée par l'appli, comme en mode sans animateur ; plus d'auto-correction */
 function trainVoc(k,alts){const t=TR.cur;if(!TR.on||!t)return;alts=(alts||[]).filter(Boolean);
-if(k=='r'&&TR.phase=='think'){TR.a=alts.some(x=>artHit(x,t.artist));TR.t=alts.some(x=>fzHit(x,titCands(t.title)));TR.da=TR.a&&!alts.some(x=>artExact(x,t.artist))?1:0;TR.dt=TR.t&&!alts.some(x=>fzExact(x,titCands(t.title)))?1:0;TR.said=alts[0]||'';TR.ysaid='';TR.xp=0;TR.lt=0;if((TR.a||TR.t)&&SET.ymode!=2){TR.phase='reveal';TR.end=Date.now()+SET.tAnn*1000;TR.lk=0;trainRender()}else{TR.phase='reveal';trainResult(0)}return}
+if(k=='r'&&TR.phase=='think'){TR.a=alts.some(x=>artHit(x,t.artist,t.sur));TR.t=alts.some(x=>fzHit(x,titCands(t.title)));TR.da=TR.a&&!alts.some(x=>artExact(x,t.artist,t.sur))?1:0;TR.dt=TR.t&&!alts.some(x=>fzExact(x,titCands(t.title)))?1:0;TR.said=alts[0]||'';TR.ysaid='';TR.xp=0;TR.lt=0;if((TR.a||TR.t)&&SET.ymode!=2){TR.phase='reveal';TR.end=Date.now()+SET.tAnn*1000;TR.lk=0;trainRender()}else{TR.phase='reveal';trainResult(0)}return}
 if(k=='y'&&TR.phase=='reveal'){let y=0;for(const x of alts){y=yearOf(x)||0;if(y)break}TR.ysaid=alts[0]||'';trainResult(y)}}
 /* temps écoulé : ce qui a été dit est envoyé ; sans rien, la réponse compte comme non trouvée */
 function trainExpV(){if(TR.xp)return;TR.xp=1;snd('gong');const n=TR.n,ph=TR.phase;const kb=VO.kb;vAtExp();setTimeout(()=>{if(TR.on&&TR.n==n&&TR.phase==ph&&!VO.sent)trainVoc(ph=='think'?'r':'y',[])},kb?KB_GR*1000:2500)}
@@ -883,7 +886,7 @@ A.innerHTML=`${W}<img class="logo sm" src="BuzzHit.png" alt="BuzzHit"><div class
 <div class="card"><h3>${avant(S.phase,S.reveal,S.scores)?'👥 Joueurs connectés ('+(S.pl||Object.keys(S.scores)).length+')':'🏆 Classement'}</h3>${avant(S.phase,S.reveal,S.scores)?connHTML(S.pl||Object.keys(S.scores),S.tm):`${podium(S.fo||Object.entries(S.scores).sort((a,b)=>b[1]-a[1]),S.ew)}${S.teams?teamRows(S.scores,S.ps,S.tm):(S.fo||Object.entries(S.scores).sort((a,b)=>b[1]-a[1])).map(([n,s])=>`<div class="ld"><span>${e(n)}${lives(n,S.el,S.er,S.out)}</span><b>${s}</b></div>`).join('')}${S.phase=='over'&&podOk()?podBtns():''}`}</div>
 ${dbInfoBlock()}`;refreshDbInfo();yk.forEach(k=>{const el=$(k.i);if(el){el.value=k.v;if(k.f)el.focus()}})}
 function loadTitres(){return fetch('titres.json?v='+Date.now(),{cache:'no-store'}).then(x=>x.ok?x.json():Promise.reject(new Error('HTTP '+x.status))).then(L=>{const del=JSON.parse(localStorage.getItem('bt_del')||'[]');const had=DB.length>0;let n=0,maj=0,rm=0;const keep=new Set();L.forEach(x=>{const v=x.vid||vid(x.url||'');if(v)keep.add(v);if(x.id)keep.add(String(x.id))});L.forEach(x=>{const v=x.vid||vid(x.url||'');if(!v||!x.artist||!x.title||!x.year)return;const id=x.id||v;if(del.includes(id))return;
-const rec={id,vid:v,artist:x.artist,title:x.title,year:+x.year,genre:x.genre||'',langue:x.langue||'',verifie:x.verifie||'',vol:+x.vol||0,defi:x.defi||'',base:1};
+const rec={id,vid:v,artist:x.artist,title:x.title,year:+x.year,genre:x.genre||'',langue:x.langue||'',verifie:x.verifie||'',vol:+x.vol||0,defi:x.defi||'',sur:x.surnoms||'',base:1};
 const existing=DB.find(d=>d.id==id||d.vid==v);if(existing){Object.assign(existing,rec);maj++}else{DB.push(rec);n++}});if(keep.size)for(let i=DB.length-1;i>=0;i--){const t=DB[i];if(t.base&&!keep.has(String(t.id))&&!keep.has(t.vid)){DB.splice(i,1);rm++}}if(n||maj||rm){save();if(peer&&tab=='b')hostUI()}if(n&&had){try{const o=newGet();localStorage.setItem('bt_newn',JSON.stringify({n:(o?o.n:0)+n,ts:Date.now(),views:NEWSEEN?1:0}))}catch(_){}if($('hm'))home()}LOADERR='';refreshDbInfo()}).catch(er=>{LOADERR=loadErrText(er);refreshDbInfo();setTimeout(()=>toast('⚠️ '+LOADERR),1500)})}
 LOADED=loadTitres();
 /* touche Entrée dans la saisie de l'année = bouton Valider juste à côté */
