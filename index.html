@@ -46,7 +46,7 @@ button svg.lg{width:18px;height:18px;fill:currentColor;vertical-align:-3px;margi
 .dfh{justify-content:center}.dfh>span:last-child{flex:0 1 auto;text-align:center}.dfh.go .ic{animation:pulse 1.6s ease-in-out infinite}.dfh small{display:block;font-weight:400;font-size:13px;opacity:.85;margin-top:3px}@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
 .cr{text-align:center;color:var(--m);font-size:12px;opacity:.8;margin:14px 0 22px}select,textarea{font:inherit;width:100%;background:#171329;color:var(--t);border:1px solid #352d54;border-radius:10px;padding:11px;margin:4px 0}
 details>summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none}details>summary::-webkit-details-marker{display:none}details>summary::before{content:'▸ '}details[open]>summary::before{content:'▾ '}details[open]>summary{margin-bottom:10px}
-#cj .box p,#lg .box p,#cj .box li,#lg .box li{margin:0 0 8px;line-height:1.45}#cj .box h4,#lg .box h4{margin:14px 0 6px;font-size:15px;color:var(--a)}#cj .box ol,#lg .box ul{margin:0 0 8px;padding-left:20px}#lg .box ul{padding-left:0;list-style:none}#lg mark{background:#ffb54533;color:var(--a);padding:0 3px;border-radius:4px}
+#cj .box p,#lg .box p,#cj .box li,#lg .box li{margin:0 0 8px;line-height:1.45}#cj .box h4,#lg .box h4{margin:14px 0 6px;font-size:15px;color:var(--a)}#cj .box ol,#lg .box ul{margin:0 0 8px;padding-left:20px}#cj .box ol,#cj .box ul,#lg .box ul{padding-left:0;list-style:none}#cj .box li,#lg .box li{padding:0;background:none;border-radius:0}#lg mark{background:#ffb54533;color:var(--a);padding:0 3px;border-radius:4px}
 /* Bandeau « NOUVEAU » dans l'angle d'un bouton : pour le retirer, enlever la classe « new » du bouton concerné (ou ce bloc de style) */
 button.new{position:relative;overflow:hidden}
 button.new::after{content:'NOUVEAU';position:absolute;top:10px;left:-28px;width:90px;transform:rotate(-45deg);background:#D92B2B;color:#fff;font-size:7px;font-weight:800;letter-spacing:.5px;line-height:1;text-align:center;padding:3px 0;box-shadow:0 1px 3px rgba(0,0,0,.45);pointer-events:none}
@@ -97,7 +97,7 @@ body.tvb .w{max-width:none;padding:1.5vw 2vw}body.tvb .cr{display:none}
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.0.46';
+const VERSION='2.0.47';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
