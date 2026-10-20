@@ -97,7 +97,7 @@ body.tvb .w{max-width:none;padding:1.5vw 2vw}body.tvb .cr{display:none}
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.0.47';
+const VERSION='2.0.48';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -708,7 +708,7 @@ o.innerHTML=`<div class="box" style="text-align:left"><p class="big" style="marg
 /* bouton de l'accueil : invite à jouer, à reprendre, ou rappelle le score et l'heure du prochain défi */
 function defiHome(){const s=defiGet();let t,m,go='';if(s&&s.done){const h=24-(+new Date().toLocaleString('fr-FR',{timeZone:'Europe/Paris',hour:'numeric',hourCycle:'h23'}).replace(/\D/g,'')||0);t=`Défi du jour ✅ ${s.score}/${DEFI_N*5}`;m=`Partage ton score !<br class="mb"> Nouveau défi dans ${h<=1?'moins d’1 h':h+' h'}.`}else if(s){t='Reprendre le défi du jour';m=`Encore ${DEFI_N-s.n} titre${DEFI_N-s.n>1?'s':''} pour finir ton score.`;go=' go'}else{t='Défi du jour';m='10 titres, les mêmes pour tout le monde aujourd’hui.<br class="mb"> Feras-tu mieux que tes amis ?';go=' go'}
 return `<button class="dfh new${go}" onclick="defiStart()"><span class="ic">🎯</span><span><b>${t}</b><small>${m}</small></span></button>`}
-function defiDone(s){A.innerHTML=`<img class="logo sm" src="BuzzHit.png" alt="BuzzHit"><div class="card">${defiRecap(s)}<button style="width:100%;margin-top:8px" onclick="trainStart()">🎧 Entraînement libre</button><button style="width:100%;margin-top:8px" onclick="home()">← Accueil</button></div>`}
+function defiDone(s){A.innerHTML=`<img class="logo sm" src="BuzzHit.png" alt="BuzzHit"><div class="card" id="dfdone">${defiRecap(s)}<button style="width:100%;margin-top:8px" onclick="trainStart()">🎧 Entraînement libre</button><button style="width:100%;margin-top:8px" onclick="home()">← Accueil</button></div>`;defiMaj()}
 /* image du score (plus difficile à modifier qu'un texte) : dessinée sur l'appareil, partagée ou enregistrée en PNG */
 /* police de l'image (Google Fonts), chargée à l'avance pour être prête au moment du partage */
 const DFONT={f:'Baloo 2',b:800,n:600,s:'Kalam',sw:700};try{const l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Kalam:wght@700&display=swap';document.head.appendChild(l);l.onload=()=>{try{['800 40px "Baloo 2"','600 40px "Baloo 2"','700 40px Kalam'].forEach(f=>document.fonts.load(f))}catch(_){}}}catch(_){}
@@ -937,6 +937,11 @@ function sonAvert(){let o=$('sonv');if(!o){o=document.createElement('div');o.id=
 o.innerHTML=`<div class="box" role="dialog" aria-label="Monte le son"><div style="font-size:44px;line-height:1">🔊</div><div class="big" style="margin:6px 0">Monte le son !</div><p class="m" style="margin:0 0 12px">BuzzHit, c'est de la musique : vérifie que le son de ton téléphone ou de ton ordinateur est assez fort.</p><button class="p" style="width:100%" onclick="sonTest()">🎵 Tester le son</button><button style="width:100%;margin-top:8px" onclick="$('sonv').hidden=true">✅ C'est bon</button></div>`;o.hidden=false}
 /* résultat du défi (pseudo + score) envoyé pour le podium du lendemain ; renvoyé au prochain lancement si le réseau manquait */
 const resId=()=>{try{let i=localStorage.getItem('bt_did');if(!i){i=Array.from(crypto.getRandomValues(new Uint8Array(12)),b=>b.toString(16).padStart(2,'0')).join('');localStorage.setItem('bt_did',i)}return i}catch(_){return ''}};
+ /* le score du défi a pu être corrigé par l'éditeur après vérification : le téléphone reprend le score enregistré sur le serveur (score, carrés, image), sans rien signaler */
+function defiMaj(){if(!RAPPEL_URL)return;let s=null;try{s=JSON.parse(localStorage.getItem('bt_defi')||'null');if(!s||!s.done||localStorage.getItem('bt_defienv')!==s.d)return}catch(_){return}const id=resId();if(!id)return;
+fetch(RAPPEL_URL+'/monresultat?d='+encodeURIComponent(s.d)+'&id='+id,{cache:'no-store'}).then(r=>r.ok?r.json():null).then(r=>{if(!r||!r.trouve||typeof r.score!='number')return;let c=null;try{c=JSON.parse(localStorage.getItem('bt_defi')||'null')}catch(_){}if(!c||c.d!==s.d)return;const g=Array.isArray(r.g)&&r.g.length==(c.g||[]).length?r.g:c.g,n={score:r.score,fa:r.fa,ft:r.ft,fy:r.fy,fb:r.fb||0};if(Object.keys(n).every(k=>(c[k]||0)===n[k])&&JSON.stringify(g)===JSON.stringify(c.g))return;const was=c.score;Object.assign(c,n,{g});defiPut(c);
+const b=defiBest(),fr=defiFr(c.d);try{if(b&&b.date===fr&&b.pts===was||!b||c.score>b.pts)localStorage.setItem('bt_defibest',JSON.stringify({pts:c.score,date:fr}))}catch(_){}
+if($('dfdone'))defiDone(c);else if($('hm'))home()}).catch(()=>{})}
 function resEnvoi(){if(!RAPPEL_URL)return;let s=null;try{s=JSON.parse(localStorage.getItem('bt_defi')||'null');if(!s||!s.done||!s.p||localStorage.getItem('bt_defienv')===s.d)return}catch(_){return}const id=resId();if(!id)return;
 fetch(RAPPEL_URL+'/resultat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({d:s.d,id,p:String(s.p).slice(0,16),score:s.score,fa:s.fa,ft:s.ft,fy:s.fy,fb:s.fb||0,det:(s.det||[]).slice(0,10)})}).then(r=>{if(r.ok||r.status===400)try{localStorage.setItem('bt_defienv',s.d)}catch(_){}}).catch(()=>{})}
 /* le défi du jour est fini : pas de rappel aujourd'hui */
@@ -1047,7 +1052,7 @@ else main=`<div class="tvh">${ph=='ready'&&s.go?'⏳ Prépare-toi, le premier ti
 /* avant le premier titre : liste des joueurs connectés, sans classement */
 const deb=avant(ph,s.reveal,s.scores),side=(deb?`<div class="tvcard"><div class="tvt">👥 Joueurs connectés (${(s.pl||rows.map(r=>r[0])).length})</div>${(s.pl||rows.map(r=>r[0])).map(n=>`<div class="ld"><span>${e(n)}${s.teams&&s.tm&&s.tm[n]?' · '+e(s.tm[n]):''}</span></div>`).join('')||'<p class="m">En attente des joueurs…</p>'}</div>`:`<div class="tvcard"><div class="tvt">🏆 Classement</div>${s.teams?teamRows(s.scores,s.ps,s.tm):rows.slice(0,12).map(([n,v],i)=>`<div class="ld"><span>${s.ew?(['🥇','🥈','🥉'][i]||(i+1)+'.'):MED(i,v)} ${e(n)}${lives(n,s.el,s.er,s.out)}</span><b>${v}</b></div>`).join('')||'<p class="m">En attente des joueurs…</p>'}</div>`)+(s.buzz&&s.buzz.length&&ph!='over'?`<div class="tvcard"><div class="tvt">✋ Ordre des buzz</div><ul>${s.buzz.map((n,i)=>`<li class="${ph=='judge'&&i==s.active?'on':''}">${i+1}. ${e(n)}</li>`).join('')}</ul></div>`:'')+`<div class="tvcard tvj"><img src="${qrc(join)}" alt="QR code"><div><div class="tvt">📲 Rejoindre</div><div>buzzhit.fr › Joueur</div><div class="tvcode">${e(tvC)}</div></div></div>`;
 A.innerHTML=`<div class="tvw"><div class="tvx"><button class="g" onclick="tvFs()">⛶ Plein écran</button><button class="g" onclick="tvQuit()">✕ Quitter</button></div><div id="tvl" class="tvl" hidden>📡 Reconnexion…</div><div class="tvg"><div class="tvm"><img class="tvlogo" src="BuzzHit.png" alt="BuzzHit"><div id="tvcd" class="tvcd"></div>${s.bo&&['play','judge','wait'].includes(ph)?'<div class="tvcd">⭐ MANCHE BONUS : année ×2</div>':''}${main}</div><div class="tvside">${side}</div></div></div>`}
-home();setTimeout(resEnvoi,2000);sonAvert();
+home();setTimeout(resEnvoi,2000);setTimeout(defiMaj,4000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState=='visible')defiMaj()});sonAvert();
 /* lien du rappel (notification) : ouvre directement le défi du jour */
 if(/[?&]defi=1/.test(location.search)){history.replaceState(null,'',location.pathname+location.hash);setTimeout(()=>{try{defiStart()}catch(_){}},300)}
 
