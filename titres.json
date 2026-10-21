@@ -13790,7 +13790,8 @@
   "year": 2020,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 29
+  "vol": 29,
+  "surnoms": "Jason Derulo"
  },
  {
   "id": "mul1zwkx",
@@ -14961,7 +14962,7 @@
  {
   "id": "mul1qgm5",
   "vid": "ntqJE-DIQPU",
-  "artist": "Vianney et Mika",
+  "artist": "Vianney Ft. Mika",
   "title": "Keep It Simple",
   "year": 2023,
   "genre": "Pop",
@@ -15653,7 +15654,7 @@
  {
   "id": "kzNJammeCoA",
   "vid": "kzNJammeCoA",
-  "artist": "Kendji Girac et Soprano",
+  "artist": "Kendji Girac Ft. Soprano",
   "title": "No Me Mirès Màs",
   "year": 2016,
   "genre": "Pop",
@@ -15683,7 +15684,7 @@
  {
   "id": "P7ZjlJINFk8",
   "vid": "P7ZjlJINFk8",
-  "artist": "Dadju et Ninho",
+  "artist": "Dadju Ft. Ninho",
   "title": "Grand Bain",
   "year": 2020,
   "genre": "Soul / R&B / Funk",
@@ -15693,7 +15694,7 @@
  {
   "id": "nFNWXGemcpM",
   "vid": "nFNWXGemcpM",
-  "artist": "Naps et Ninho",
+  "artist": "Naps Ft. Ninho",
   "title": "6.3",
   "year": 2020,
   "genre": "Rap / Hip-Hop",
@@ -15753,7 +15754,7 @@
  {
   "id": "H1HdZFgR-aA",
   "vid": "H1HdZFgR-aA",
-  "artist": "2Pac et Big Syke",
+  "artist": "2Pac Ft. Big Syke",
   "title": "All Eyez On Me",
   "year": 1996,
   "genre": "Rap / Hip-Hop",
@@ -15773,7 +15774,7 @@
  {
   "id": "ZAz3rnLGthg",
   "vid": "ZAz3rnLGthg",
-  "artist": "Kanye West et Dwele",
+  "artist": "Kanye West Ft. Dwele",
   "title": "Flashing Lights",
   "year": 2007,
   "genre": "Rap / Hip-Hop",
@@ -15803,7 +15804,7 @@
  {
   "id": "Cd06IxUBIM0",
   "vid": "Cd06IxUBIM0",
-  "artist": "Don Omar et Tego Calderón",
+  "artist": "Don Omar Ft. Tego Calderón",
   "title": "Bandoleros",
   "year": 2005,
   "genre": "Rap / Hip-Hop",
@@ -15833,7 +15834,7 @@
  {
   "id": "-xpQgXIZ2NY",
   "vid": "-xpQgXIZ2NY",
-  "artist": "24KGOLDN et Iann Dior",
+  "artist": "24kGoldn Ft. Iann Dior",
   "title": "Mood",
   "year": 2020,
   "genre": "Rap / Hip-Hop",
@@ -15903,7 +15904,7 @@
  {
   "id": "8fK1kA9Q-3Y",
   "vid": "8fK1kA9Q-3Y",
-  "artist": "Metro Boomin et Gunna",
+  "artist": "Metro Boomin Ft. Gunna",
   "title": "Space Cadet",
   "year": 2018,
   "genre": "Rap / Hip-Hop",
@@ -15913,7 +15914,7 @@
  {
   "id": "R8vpQdZErbw",
   "vid": "R8vpQdZErbw",
-  "artist": "Post Malone et Quavo",
+  "artist": "Post Malone Ft. Quavo",
   "title": "Congratulations",
   "year": 2016,
   "genre": "Rap / Hip-Hop",
@@ -15953,7 +15954,7 @@
  {
   "id": "pmIMl2zyj3w",
   "vid": "pmIMl2zyj3w",
-  "artist": "Internet Money, Don Toliver, Gunna et NAV",
+  "artist": "Internet Money Ft. Gunna, Don Toliver et NAV",
   "title": "Lemonade",
   "year": 2020,
   "genre": "Rap / Hip-Hop",
@@ -16141,7 +16142,7 @@
  {
   "id": "fgL26DoQVOQ",
   "vid": "fgL26DoQVOQ",
-  "artist": "Gazo et Tiakola",
+  "artist": "Gazo Ft. Tiakola",
   "title": "KASSAV",
   "year": 2021,
   "genre": "Rap / Hip-Hop",
@@ -16181,7 +16182,7 @@
  {
   "id": "7aOfMAnQZxU",
   "vid": "7aOfMAnQZxU",
-  "artist": "Orelsan et Damso",
+  "artist": "Orelsan Ft. Damso",
   "title": "Rêves bizarres",
   "year": 2018,
   "genre": "Rap / Hip-Hop",
@@ -16281,7 +16282,7 @@
  {
   "id": "GpKSsSciNeI",
   "vid": "GpKSsSciNeI",
-  "artist": "Koba LaD et Ninho",
+  "artist": "Koba LaD Ft. Ninho",
   "title": "Encore",
   "year": 2020,
   "genre": "Rap / Hip-Hop",
@@ -16291,7 +16292,7 @@
  {
   "id": "-XgXx88gsic",
   "vid": "-XgXx88gsic",
-  "artist": "Ninho et Blasko",
+  "artist": "Ninho Ft. Blasko",
   "title": "Toutes Options",
   "year": 2018,
   "genre": "Rap / Hip-Hop",
@@ -16331,7 +16332,7 @@
  {
   "id": "zbWpjizpJfI",
   "vid": "zbWpjizpJfI",
-  "artist": "Drake et Lil Durk",
+  "artist": "Drake Ft. Lil Durk",
   "title": "Laugh Now Cry Later",
   "year": 2020,
   "genre": "Rap / Hip-Hop",
@@ -16341,7 +16342,7 @@
  {
   "id": "ZBOoVj6IW3s",
   "vid": "ZBOoVj6IW3s",
-  "artist": "Drake et Future",
+  "artist": "Future Ft. Drake",
   "title": "Life is Good",
   "year": 2020,
   "genre": "Rap / Hip-Hop",
@@ -16361,7 +16362,7 @@
  {
   "id": "m0T0eGCOchA",
   "vid": "m0T0eGCOchA",
-  "artist": "Zola et Ninho",
+  "artist": "Zola Ft. Ninho",
   "title": "Papers",
   "year": 2019,
   "genre": "Rap / Hip-Hop",
@@ -16401,7 +16402,7 @@
  {
   "id": "f3sTRjCe7hg",
   "vid": "f3sTRjCe7hg",
-  "artist": "Booba et Kaaris",
+  "artist": "Booba Ft. Kaaris",
   "title": "Kalash",
   "year": 2012,
   "genre": "Rap / Hip-Hop",
@@ -16491,7 +16492,7 @@
  {
   "id": "iUO1VmLnEaI",
   "vid": "iUO1VmLnEaI",
-  "artist": "Gambi et Heuss l'Enfoiré",
+  "artist": "Gambi Ft. Heuss l'Enfoiré",
   "title": "Dans l'espace",
   "year": 2020,
   "genre": "Rap / Hip-Hop",
@@ -16661,7 +16662,7 @@
  {
   "id": "gC2ca-tdw2U",
   "vid": "gC2ca-tdw2U",
-  "artist": "Kanye West et Rihanna",
+  "artist": "Kanye West Ft. Rihanna",
   "title": "All Of The Lights",
   "year": 2010,
   "genre": "Rap / Hip-Hop",
@@ -16701,7 +16702,7 @@
  {
   "id": "YxyvVsPtfIs",
   "vid": "YxyvVsPtfIs",
-  "artist": "Naps, Sofiane et Kalif",
+  "artist": "Naps Ft. Sofiane et Kalif Hardcore",
   "title": "Chicha Kaloud",
   "year": 2021,
   "genre": "Rap / Hip-Hop",
@@ -16791,7 +16792,7 @@
  {
   "id": "9T8Lbd8uUrQ",
   "vid": "9T8Lbd8uUrQ",
-  "artist": "Koba LaD et Niska",
+  "artist": "Koba LaD Ft. Niska",
   "title": "RR 9.1",
   "year": 2019,
   "genre": "Rap / Hip-Hop",
@@ -16871,7 +16872,7 @@
  {
   "id": "11jht5ZZV9E",
   "vid": "11jht5ZZV9E",
-  "artist": "Bilouki et La Mano 1.9",
+  "artist": "Bilouki Ft. La Mano 1.9",
   "title": "Type Shit",
   "year": 2024,
   "genre": "Rap / Hip-Hop",
