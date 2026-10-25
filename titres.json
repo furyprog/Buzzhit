@@ -19819,6 +19819,52 @@
   "surnoms": "Kaas"
  },
  {
+  "id": "shD6L8IQIBA",
+  "vid": "shD6L8IQIBA",
+  "artist": "Serge Gainsbourg",
+  "title": "Docteur Jekyll et Mister Hyde",
+  "year": 1966,
+  "genre": "Pop",
+  "langue": "Français",
+  "vol": 29,
+  "defi": "2026-10-27",
+  "surnoms": "Gainsbourg|Gainsbarre"
+ },
+ {
+  "id": "OGX6yJLFQsc",
+  "vid": "OGX6yJLFQsc",
+  "artist": "Carlos",
+  "title": "Le Bougalou du loup-garou",
+  "year": 1976,
+  "genre": "Variété / Chanson",
+  "langue": "Français",
+  "vol": 36,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "nmDyUPv9Dl8",
+  "vid": "nmDyUPv9Dl8",
+  "artist": "Le grand orchestre du splendid",
+  "title": "La salsa du démon",
+  "year": 1980,
+  "genre": "Variété / Chanson",
+  "langue": "Français",
+  "vol": 38,
+  "defi": "2026-10-27",
+  "surnoms": "Le splendid"
+ },
+ {
+  "id": "WGFFLsB4hSQ",
+  "vid": "WGFFLsB4hSQ",
+  "artist": "Manau",
+  "title": "La sorcière",
+  "year": 2011,
+  "genre": "Rap / Hip-Hop",
+  "langue": "Français",
+  "vol": 27,
+  "defi": "2026-10-27"
+ },
+ {
   "id": "ApFD2UdQAis",
   "vid": "ApFD2UdQAis",
   "artist": "Véronique Sanson",
@@ -20894,52 +20940,6 @@
   "genre": "Dessins animés",
   "langue": "Français",
   "vol": 24,
-  "defi": "2026-10-27"
- },
- {
-  "id": "shD6L8IQIBA",
-  "vid": "shD6L8IQIBA",
-  "artist": "Serge Gainsbourg",
-  "title": "Docteur Jekyll et Mister Hyde",
-  "year": 1966,
-  "genre": "Pop",
-  "langue": "Français",
-  "vol": 29,
-  "defi": "2026-10-27",
-  "surnoms": "Gainsbourg|Gainsbarre"
- },
- {
-  "id": "OGX6yJLFQsc",
-  "vid": "OGX6yJLFQsc",
-  "artist": "Carlos",
-  "title": "Le Bougalou du loup-garou",
-  "year": 1976,
-  "genre": "Variété / Chanson",
-  "langue": "Français",
-  "vol": 36,
-  "defi": "2026-10-27"
- },
- {
-  "id": "nmDyUPv9Dl8",
-  "vid": "nmDyUPv9Dl8",
-  "artist": "Le grand orchestre du splendid",
-  "title": "La salsa du démon",
-  "year": 1980,
-  "genre": "Variété / Chanson",
-  "langue": "Français",
-  "vol": 38,
-  "defi": "2026-10-27",
-  "surnoms": "Le splendid"
- },
- {
-  "id": "WGFFLsB4hSQ",
-  "vid": "WGFFLsB4hSQ",
-  "artist": "Manau",
-  "title": "La sorcière",
-  "year": 2011,
-  "genre": "Rap / Hip-Hop",
-  "langue": "Français",
-  "vol": 27,
   "defi": "2026-10-27"
  }
 ]
