@@ -18631,6 +18631,7 @@
   "year": 1980,
   "genre": "Électronique / Dance",
   "langue": "Français",
+  "vol": 26,
   "defi": "2026-10-21"
  },
  {
@@ -20762,5 +20763,137 @@
   "vol": 17,
   "defi": "2026-10-21",
   "surnoms": "Bachelet"
+ },
+ {
+  "id": "zcQmM0HjMH8",
+  "vid": "zcQmM0HjMH8",
+  "artist": "Klaus Badelt",
+  "title": "Pirates des Caraïbes",
+  "year": 2003,
+  "genre": "B.O. Films / Séries",
+  "langue": "Anglais",
+  "vol": 19,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "fJIKatjB00U",
+  "vid": "fJIKatjB00U",
+  "artist": "Justine sainte",
+  "title": "Code Lyoko (Un monde sans danger)",
+  "year": 2003,
+  "genre": "Dessins animés",
+  "langue": "Français",
+  "vol": 37,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "DYed5whEf4g",
+  "vid": "DYed5whEf4g",
+  "artist": "Imagine Dragons",
+  "title": "Bones",
+  "year": 2022,
+  "genre": "Rock & Alternatif / Metal",
+  "langue": "Anglais",
+  "vol": 30,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "IOrbP1OqNsg",
+  "vid": "IOrbP1OqNsg",
+  "artist": "Imagine Dragons et JID",
+  "title": "Enemy",
+  "year": 2021,
+  "genre": "Rock & Alternatif / Metal",
+  "langue": "Anglais",
+  "vol": 16,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "A8dH4cKGa6s",
+  "vid": "A8dH4cKGa6s",
+  "artist": "Alex Warren",
+  "title": "Ordinary",
+  "year": 2025,
+  "genre": "Pop",
+  "langue": "Anglais",
+  "vol": 25,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "zqTfDBX8qBE",
+  "vid": "zqTfDBX8qBE",
+  "artist": "Black Eyed Peas",
+  "title": "Meet Me Halfway",
+  "year": 2009,
+  "genre": "Pop",
+  "langue": "Anglais",
+  "vol": 36,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "iIXZdKszubo",
+  "vid": "iIXZdKszubo",
+  "artist": "Phil Collins",
+  "title": "Tarzan (Enfant de l'Homme)",
+  "year": 1999,
+  "genre": "Dessins animés",
+  "langue": "Français",
+  "vol": 20,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "htk6MRjmcnQ",
+  "vid": "htk6MRjmcnQ",
+  "artist": "HUNTR/X",
+  "title": "Golden (KPop Demon Hunters)",
+  "year": 2025,
+  "genre": "Dessins animés",
+  "langue": "Anglais",
+  "vol": 20,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "uy_qlAbdXtc",
+  "vid": "uy_qlAbdXtc",
+  "artist": "Terry J. Neale et Rick Mulhall",
+  "title": "Titeuf",
+  "year": 2001,
+  "genre": "Dessins animés",
+  "langue": "Français",
+  "vol": 25,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "VFurGisXp4A",
+  "vid": "VFurGisXp4A",
+  "artist": "Marc Tomasi et Mehdi Elmorabit",
+  "title": "Galactik Football",
+  "year": 2006,
+  "genre": "Dessins animés",
+  "langue": "Français",
+  "vol": 16,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "PrkATv2aqBA",
+  "vid": "PrkATv2aqBA",
+  "artist": "Moonbaby",
+  "title": "Totally Spies (Here We Go)",
+  "year": 2001,
+  "genre": "Dessins animés",
+  "langue": "Anglais",
+  "vol": 62,
+  "defi": "2026-10-27"
+ },
+ {
+  "id": "FTOnCKOdBeg",
+  "vid": "FTOnCKOdBeg",
+  "artist": "Akhenaton",
+  "title": "Foot 2 rue",
+  "year": 2005,
+  "genre": "Dessins animés",
+  "langue": "Français",
+  "vol": 24,
+  "defi": "2026-10-27"
  }
 ]
