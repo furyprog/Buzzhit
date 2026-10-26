@@ -23,7 +23,7 @@ li{list-style:none;padding:8px 10px;margin-bottom:6px;border-radius:10px;backgro
 .ld{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px 10px;padding:6px 0;border-bottom:1px solid #2c2648}
 .ld>span:first-child{flex:1 1 180px;min-width:0;word-break:break-word}
 .ld>span:last-child{flex:none;white-space:nowrap}
-#ytw .yb{position:absolute;left:-4px;right:-4px;z-index:3;background:transparent}#ytw .yb.t{top:-4px;height:24%}#ytw .yb.b{bottom:-4px;height:30%}#ytw .yb.l,#ytw .yb.r{top:24%;bottom:30%;height:auto;width:calc(22% + 4px)}#ytw .yb.l{right:auto}#ytw .yb.r{left:auto}#ytw{position:relative;width:200px;height:200px;margin:auto}#ytw>div{position:absolute;inset:-4px;background:#000;display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;font-size:42px;pointer-events:none}
+#ytw>#lo{z-index:5;font-size:15px;font-weight:700;color:#fff}#ytw .yb{position:absolute;left:-4px;right:-4px;z-index:3;background:transparent}#ytw .yb.t{top:-4px;height:24%}#ytw .yb.b{bottom:-4px;height:30%}#ytw .yb.l,#ytw .yb.r{top:24%;bottom:30%;height:auto;width:calc(22% + 4px)}#ytw .yb.l{right:auto}#ytw .yb.r{left:auto}#ytw{position:relative;width:200px;height:200px;margin:auto}#ytw>div{position:absolute;inset:-4px;background:#000;display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;font-size:42px;pointer-events:none}
 #lo{position:absolute;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;font-size:13px;text-align:center;padding:10px;color:var(--t);z-index:2}
 .plw{position:relative;height:200px;overflow:hidden}.plmask{position:absolute;inset:0;background:#000;display:flex;align-items:center;justify-content:center;color:#8d86b5;font-size:15px;border-radius:8px}.plmask img{max-width:100%;max-height:100%;object-fit:contain;-webkit-mask-image:radial-gradient(circle closest-side,#000 84%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 84%,transparent 100%)}.plmask[hidden]{display:none}
 #pl.car{background:#000}#pl.car .box{max-width:none;width:100%;height:100%;border:0;border-radius:0;background:#000;display:flex;flex-direction:column;justify-content:center}#pl.car h3,#pl.car #plwl{display:none}#pl.car .plw{height:60px}#pl.car .big{font-size:30px;line-height:1.25;margin:24px 0}#pl.car .plmain button{font-size:22px;padding:30px 4px;min-width:0}#pl.car .plsec{margin-top:30px}
@@ -97,7 +97,7 @@ body.tvb .w{max-width:none;padding:1.5vw 2vw}body.tvb .cr{display:none}
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.0.54';
+const VERSION='2.0.55';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
