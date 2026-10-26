@@ -106,7 +106,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.0.61';
+const VERSION='2.0.62';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -511,7 +511,7 @@ try{const f0=$('sf');if(f0&&e.source===f0.contentWindow){YG=true;const du=d&&d.i
 if(f0._rnd){f0._rnd=0;const o=rndOff({vid:f0._vid});if(o>1){f0._off=o;if(YS==1){try{f0.contentWindow.postMessage(JSON.stringify({event:'command',func:'seekTo',args:[o,true]}),'*')}catch(_){}if(typeof TR!='undefined'&&TR.on){if(TR.phase=='play')TR.off=o}else if(g&&g.phase=='play')g.off=o-Math.max(0,(Date.now()-g.t1)/1000)}else f0.src=f0.src.replace(/&start=\d+/,'')+'&start='+o}}}}}catch(_){}
 let st=null;if(d&&d.event=='onStateChange')st=d.info;else if(d&&d.event=='infoDelivery'&&d.info&&typeof d.info.playerState=='number')st=d.info.playerState;
 if(st===null||st===YS)return;YS=st;
-if(st==1){{const b=$('npb');if(b)b.remove()}try{const f=$('sf');if(f&&e.source===f.contentWindow){setVol(f);if(typeof TR!='undefined'&&TR.on){if(TR.phase=='ready')trainGo()}else if(g){if(g.phase=='ready'&&!g.lis)go();else if(g.phase=='wait')resume();else if(g.lis&&f._fade)lisStart(f)}}}catch(_){}}
+if(st==1){{const b=$('npb');if(b)b.remove()}try{const f=$('sf');if(f&&e.source===f.contentWindow){setVol(f);if(typeof TR!='undefined'&&TR.on){if(TR.phase=='ready')trainGo();else if(f._fade)trLisStart(f)}else if(g){if(g.phase=='ready'&&!g.lis)go();else if(g.phase=='wait')resume();else if(g.lis&&f._fade)lisStart(f)}}}catch(_){}}
 musClock(st);maskRefresh()});
 function musClock(st){try{const n=Date.now();
 if(typeof TR!='undefined'&&TR.on){if(TR.phase!='play')return;if(st==2&&!TR.pf){TR.rem=Math.max(0,TR.end-n);TR.pf=true}else if(st==1&&TR.pf){TR.pf=false;TR.end=n+TR.rem}return}
@@ -861,7 +861,9 @@ let p=b.filter(x=>!TR.played.includes(x.id));if(!p.length){TR.played=[];p=b}cons
 /* réécoute : le carré est remis au milieu de l'écran (il était souvent en bas, en partie caché) et la consigne s'affiche dans le carré lui-même */
 /* après chaque réponse (ou temps écoulé), « Écouter un autre passage » se lance tout seul en même temps que le résultat (pas si le morceau ne se lançait pas ou a été passé) */
 function trainAuto(){if(TR.np||TR.sk)return;setTimeout(()=>{if(TR.on&&['result','miss'].includes(TR.phase)&&!$('sf'))trainOther()},300)}
-function trainOther(){const o=rndOff(TR.cur);mk(TR.cur,o==null?45:o,()=>{if(BL)window.removeEventListener('blur',BL)},true);maskRefresh();const w=$('ytw');if(w&&w.scrollIntoView)w.scrollIntoView({block:'center',behavior:'smooth'})}
+/* « Écouter un autre passage » : comme l'extrait de l'animateur, 15 s maximum avec un fondu au début et à la fin, et l'écran reste sur la réponse (pas de descente vers le carré noir) */
+function trainOther(){const o=rndOff(TR.cur);clearInterval(TLIV);mk(TR.cur,o==null?45:o,()=>{if(BL)window.removeEventListener('blur',BL)},true);const f=$('sf');if(f)f._fade=1;maskRefresh()}
+let TLIV=0;function trLisStart(f){if(f._fst)return;f._fst=Date.now();clearInterval(TLIV);const tg=SET.vr&&f._v?f._v:100;TLIV=setInterval(()=>{if($('sf')!==f||!TR.on){clearInterval(TLIV);return}const t=Date.now()-f._fst;let v=tg*Math.min(1,t/LIS_FI);if(t>LIS_D-LIS_FO)v=Math.min(v,tg*Math.max(0,(LIS_D-t)/LIS_FO));lisVol(f,v);if(t>=LIS_D){clearInterval(TLIV);rmIframe();maskRefresh()}},100)}
 function trainReplay(){mk(TR.cur,TR.off||0,()=>{if(BL)window.removeEventListener('blur',BL)},true);maskRefresh();const w=$('ytw');if(w&&w.scrollIntoView)w.scrollIntoView({block:'center',behavior:'smooth'})}
 function trainFinal(){if(TR.defi&&TR.essai){essaiFin();return}if(TR.defi){defiFinal();return}gc('solo-serie-finie','Série solo terminée');TR.phase='final';rmIframe();TR.prev=TR.len?brGet(bkey()):null;TR.newRec=!!TR.len&&(!TR.prev||TR.score>TR.prev.pts);if(TR.newRec)brSet(bkey(),{pts:TR.score,date:new Date().toLocaleDateString('fr-FR')});snd(TR.newRec?'win':'ok');trainRender()}
 function trainGo(){if(TR.phase!='ready')return;fold();if(BL)window.removeEventListener('blur',BL);gcT('solo',TR.cur);if(TR.defi)defiSave(TR.n);TR.na=!TR.defi&&noArt();if(TR.na&&!TR.naV){TR.naV=1;setTimeout(()=>toast(NA_MSG,6000),300)}TR.phase='play';TR.off=TR.defi?0:(($('sf')&&$('sf')._off)||0);TR.end=Date.now()+SET.maxD*1000+MUS_GR;TR.lt=0;trainRender()}
