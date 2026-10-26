@@ -97,7 +97,7 @@ body.tvb .w{max-width:none;padding:1.5vw 2vw}body.tvb .cr{display:none}
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.0.55';
+const VERSION='2.0.56';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -189,12 +189,12 @@ function plTogF(k,v){const a=PFT[k],i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);
 function plPre(a,b,l){PFT.genres=[];PFT.langues=l;PFT.yMin=a;PFT.yMax=b;plSaveF();plSet()}
 function plSetClose(){if(PFT.yMin&&PFT.yMax&&+PFT.yMin>+PFT.yMax){const t=PFT.yMin;PFT.yMin=PFT.yMax;PFT.yMax=t;plSaveF()}$('fb').hidden=true}
 function plBegin(sv){let b=null;if(sv){plq=sv.q.slice();pli=Math.max(0,plq.findIndex(x=>x.vid==sv.tr.vid))-1;plAt=Math.max(0,sv.t-2)}else{b=DB.filter(pMatches);if(!b.length){alert('Aucun titre ne correspond aux filtres de la playlist (⚙️ Réglages playlist).');return}plq=b.slice().sort(()=>Math.random()-.5);pli=-1;plAt=0}
-rmIframe();clearTimeout(tm);
+rmIframe();clearTimeout(tm);msOn();
 $('pl').innerHTML='<div class="box" style="max-width:420px;width:100%"><h3>🎶 Playlist aléatoire</h3><div id="plp" class="plw"><div id="plyt"></div><div class="plmask" id="plm"><img src="BuzzHit.png" alt="BuzzHit"></div></div><div id="pln" class="big" style="margin:10px 0"></div><div class="m" id="plc"></div><p class="m" id="plwl" style="margin-top:8px"></p><div class="row plmain" style="margin-top:10px"><button onclick="plPrev()">⏮</button><button onclick="plTog()">⏯</button><button class="p" onclick="plNext()">⏭ Suivant</button></div><div class="row plsec" style="margin-top:10px"><button class="g" onclick="plCar()">🚗 Voiture</button><button class="g" onclick="plReport()">🚩 Signaler</button><button class="d" onclick="plHome()">🏠 Accueil</button></div></div>';$('pl').hidden=false;plView();wl(true);$('plwl').textContent='wakeLock' in navigator?"🔆 L'écran reste allumé tant que la playlist est ouverte. Ne verrouille pas le téléphone avec le bouton.":"⚠️ Ce navigateur ne peut pas garder l'écran allumé : désactive la mise en veille automatique.";
 if(window.YT&&YT.Player)plNext();else{window.onYouTubeIframeAPIReady=()=>plNext();const sc=document.createElement('script');sc.src='https://www.youtube.com/iframe_api';document.head.appendChild(sc)}}
-function plNext(){pli++;if(pli>=plq.length){plq.sort(()=>Math.random()-.5);pli=0}const t=plq[pli],st0=plAt;plAt=0;if(plNext.l!==t.id){plNext.l=t.id;gcT('pl',t)}plSave(st0);$('pln').innerHTML=vdot(t,1)+e(t.artist)+' — '+e(t.title)+' ('+t.year+')';$('plc').textContent=(pli+1)+' / '+plq.length;
+function plNext(){pli++;if(pli>=plq.length){plq.sort(()=>Math.random()-.5);pli=0}const t=plq[pli],st0=plAt;plAt=0;if(plNext.l!==t.id){plNext.l=t.id;gcT('pl',t)}plSave(st0);$('pln').innerHTML=vdot(t,1)+e(t.artist)+' — '+e(t.title)+' ('+t.year+')';$('plc').textContent=(pli+1)+' / '+plq.length;msMeta(t);
 if(ytp){ytp.loadVideoById({videoId:t.vid,startSeconds:st0});try{ytp.setVolume(vEff(t.vol)||100)}catch(_){}return}
-ytp=new YT.Player('plyt',{width:'100%',height:200,videoId:t.vid,playerVars:{autoplay:1,playsinline:1,start:st0},events:{onReady:ev=>{try{ev.target.setVolume(vEff(t.vol)||100)}catch(_){}ev.target.playVideo()},onStateChange:ev=>{if(ev.data===1){try{ev.target.setVolume(vEff((plq[pli]||{}).vol)||100)}catch(_){}}if(ev.data===0)plNext()},onError:ev=>{try{addReport('Lecture impossible : erreur du lecteur '+ev.data,plq[pli])}catch(_){}setTimeout(plNext,800)}}})}
+ytp=new YT.Player('plyt',{width:'100%',height:200,videoId:t.vid,playerVars:{autoplay:1,playsinline:1,start:st0},events:{onReady:ev=>{try{ev.target.setVolume(vEff(t.vol)||100)}catch(_){}ev.target.playVideo()},onStateChange:ev=>{msState(ev.data);if(ev.data===1){try{ev.target.setVolume(vEff((plq[pli]||{}).vol)||100)}catch(_){}}if(ev.data===0)plNext()},onError:ev=>{try{addReport('Lecture impossible : erreur du lecteur '+ev.data,plq[pli])}catch(_){}setTimeout(plNext,800)}}})}
 function plReport(){const t=plq[pli];if(!t)return;askPrompt('Titre : '+t.artist+' — '+t.title+'\nDécris le problème (lien mort, mauvais titre, etc.) :',v=>{addReport(v||'(sans description)',t);toast('🚩 Signalement enregistré')},'text')}
 const FB='https://docs.google.com/forms/d/e/1FAIpQLSc8hEuq8kvXvOQ4-JD5Ar3m5r6H9Ru4f2PlWB15hXC3YKUmhg/formResponse';
 function fbInfos(){return [new Date().toLocaleString('fr-FR'),navigator.userAgent.slice(0,120),screen.width+'x'+screen.height,'phase='+(typeof g!='undefined'&&g?g.phase:'-'),'équipes='+SET.teams,'joueurs='+Object.keys(conns).length,'titres='+DB.length,'PWA='+(matchMedia('(display-mode: standalone)').matches?'oui':'non'),'V'+VERSION].join(' | ')}
@@ -215,8 +215,18 @@ function plCar(){try{localStorage.setItem('bt_plcar',PLC()?'0':'1')}catch(_){}pl
 function plTogV(k){try{localStorage.setItem(k,localStorage.getItem(k)==='1'?'0':'1')}catch(_){}plSet()}
 function plPrev(){pli=Math.max(-1,pli-2);plNext()}
 function plTog(){if(!ytp)return;ytp.getPlayerState()===1?ytp.pauseVideo():ytp.playVideo()}
+/* commandes au volant / casque Bluetooth / écran verrouillé (Media Session) : ⏭ suivant, ⏮ précédent, ⏯ lecture-pause.
+   La page joue en boucle un son silencieux pour être reconnue comme « lecteur de musique » par le téléphone (le vrai son vient de YouTube). */
+let MSA=null;
+function msWav(){const n=8000,b=new ArrayBuffer(44+n),v=new DataView(b),w=(o,t)=>{for(let i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))};w(0,'RIFF');v.setUint32(4,36+n,true);w(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,8000,true);v.setUint32(28,8000,true);v.setUint16(32,1,true);v.setUint16(34,8,true);w(36,'data');v.setUint32(40,n,true);for(let i=0;i<n;i++)v.setUint8(44+i,128);return URL.createObjectURL(new Blob([b],{type:'audio/wav'}))}
+function msOn(){if(!('mediaSession' in navigator))return;try{if(!MSA){MSA=new Audio(msWav());MSA.loop=true;MSA.volume=.01}MSA.play().catch(()=>{})}catch(_){}
+const h=(a,f)=>{try{navigator.mediaSession.setActionHandler(a,f)}catch(_){}};
+h('nexttrack',()=>{if(ytp)plNext()});h('previoustrack',()=>{if(ytp)plPrev()});h('play',()=>{try{MSA&&MSA.play().catch(()=>{});ytp&&ytp.playVideo()}catch(_){}});h('pause',()=>{try{ytp&&ytp.pauseVideo()}catch(_){}});h('stop',()=>{try{ytp&&ytp.pauseVideo()}catch(_){}})}
+function msMeta(t){if(!('mediaSession' in navigator)||!t)return;try{navigator.mediaSession.metadata=new MediaMetadata({title:t.title,artist:t.artist,album:"BuzzHit · Playlist ("+t.year+")",artwork:[{src:'BuzzHit.png',sizes:'512x512',type:'image/png'}]})}catch(_){}}
+function msState(st){if(!('mediaSession' in navigator))return;try{if(st===1){navigator.mediaSession.playbackState='playing';MSA&&MSA.paused&&MSA.play().catch(()=>{})}else if(st===2)navigator.mediaSession.playbackState='paused'}catch(_){}}
+function msOff(){try{MSA&&MSA.pause()}catch(_){}if(!('mediaSession' in navigator))return;['nexttrack','previoustrack','play','pause','stop'].forEach(a=>{try{navigator.mediaSession.setActionHandler(a,null)}catch(_){}});try{navigator.mediaSession.metadata=null;navigator.mediaSession.playbackState='none'}catch(_){}}
 function plHome(){plSave();plStop(true);if($('hm'))home()}
-function plStop(keep){$('pl').classList.remove('car');if(!keep)try{localStorage.removeItem(PLK)}catch(_){}wl(false);try{ytp&&ytp.destroy()}catch(_){}ytp=null;$('pl').hidden=true;$('pl').innerHTML=''}
+function plStop(keep){msOff();$('pl').classList.remove('car');if(!keep)try{localStorage.removeItem(PLK)}catch(_){}wl(false);try{ytp&&ytp.destroy()}catch(_){}ytp=null;$('pl').hidden=true;$('pl').innerHTML=''}
 const GENRES=['Rock & Alternatif / Metal','Pop','Rap / Hip-Hop','Électronique / Dance','Soul / R&B / Funk','B.O. Films / Séries','Comédies musicales','Dessins animés','Variété / Chanson','Folk / Country','Reggae / Dancehall'];
 let filt=JSON.parse(localStorage.getItem('bt_filt')||'{"genres":[],"langues":[],"yMin":"","yMax":""}');
 const saveFilt=()=>localStorage.setItem('bt_filt',JSON.stringify(filt));filt.genres=filt.genres.filter(x=>GENRES.includes(x));
