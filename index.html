@@ -23,7 +23,7 @@ li{list-style:none;padding:8px 10px;margin-bottom:6px;border-radius:10px;backgro
 .ld{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px 10px;padding:6px 0;border-bottom:1px solid #2c2648}
 .ld>span:first-child{flex:1 1 180px;min-width:0;word-break:break-word}
 .ld>span:last-child{flex:none;white-space:nowrap}
-#ytw .yb{position:absolute;left:0;right:0;z-index:3;background:transparent}#ytw .yb.t{top:0;height:24%}#ytw .yb.b{bottom:0;height:30%}#ytw{position:relative;width:200px;height:200px;margin:auto}#ytw>div{position:absolute;inset:0;background:#000;display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;font-size:42px;pointer-events:none}
+#ytw .yb{position:absolute;left:-4px;right:-4px;z-index:3;background:transparent}#ytw .yb.t{top:-4px;height:24%}#ytw .yb.b{bottom:-4px;height:30%}#ytw{position:relative;width:200px;height:200px;margin:auto}#ytw>div{position:absolute;inset:-4px;background:#000;display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;font-size:42px;pointer-events:none}
 #lo{position:absolute;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;font-size:13px;text-align:center;padding:10px;color:var(--t);z-index:2}
 .plw{position:relative;height:200px;overflow:hidden}.plmask{position:absolute;inset:0;background:#000;display:flex;align-items:center;justify-content:center;color:#8d86b5;font-size:15px;border-radius:8px}.plmask img{max-width:100%;max-height:100%;object-fit:contain;-webkit-mask-image:radial-gradient(circle closest-side,#000 84%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 84%,transparent 100%)}.plmask[hidden]{display:none}
 #pl.car{background:#000}#pl.car .box{max-width:none;width:100%;height:100%;border:0;border-radius:0;background:#000;display:flex;flex-direction:column;justify-content:center}#pl.car h3,#pl.car #plwl{display:none}#pl.car .plw{height:60px}#pl.car .big{font-size:30px;line-height:1.25;margin:24px 0}#pl.car .plmain button{font-size:22px;padding:30px 4px;min-width:0}#pl.car .plsec{margin-top:30px}
@@ -97,7 +97,7 @@ body.tvb .w{max-width:none;padding:1.5vw 2vw}body.tvb .cr{display:none}
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.0.52';
+const VERSION='2.0.53';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -388,7 +388,7 @@ function setVol(f){try{if(f&&f._fade){if(!f._fst)lisVol(f,0);return}if(f&&f._v&&
 let DUR={};try{DUR=JSON.parse(localStorage.getItem('bt_dur')||'{}')}catch(_){}
 function rndOff(t){const d=DUR[t&&t.vid];if(!d)return null;const lo=15,hi=d-Math.max(30,SET.maxD+5);return hi>lo?Math.floor(lo+Math.random()*(hi-lo)):Math.max(0,Math.min(15,Math.floor(d-SET.maxD-5)))}
 const RS=t=>SET.rnd?-1:0;
-function mk(t,pos,cb,direct){rmIframe();let pend=0;if(pos===-1){const o=rndOff(t);if(o==null){pos=0;pend=1}else pos=o}if(BL)window.removeEventListener('blur',BL);const f=document.createElement('iframe');f.id='sf';f.width=200;f.height=200;f.allow='autoplay';f.style.border=0;f._vid=t.vid;f._off=pos>1?Math.floor(pos):0;f._rnd=pend;
+function mk(t,pos,cb,direct){rmIframe();let pend=0;if(pos===-1){const o=rndOff(t);if(o==null){pos=0;pend=1}else pos=o}if(BL)window.removeEventListener('blur',BL);const f=document.createElement('iframe');f.id='sf';f.width=200;f.height=200;f.allow='autoplay';f.style.border=0;f.style.display='block';f._cb=cb;f._dir=direct;f._vid=t.vid;f._off=pos>1?Math.floor(pos):0;f._rnd=pend;
 /* lecteur intégré officiel de YouTube (confidentialité renforcée) : chargé tout de suite mais en pause, il ne démarre qu'au toucher du carré noir (sauf réécoute : direct) */
 f.src='https://www.youtube-nocookie.com/embed/'+t.vid+'?playsinline=1&controls=0&fs=0&disablekb=1&rel=0&iv_load_policy=3&modestbranding=1'+(pos>1?'&start='+Math.floor(pos):'')+'&enablejsapi=1'+(direct?'&autoplay=1':'');
 const lo=document.createElement('div');lo.id='lo';lo.textContent='⏳ Chargement…';
@@ -498,7 +498,12 @@ if(typeof TR!='undefined'&&TR.on){if(TR.phase!='play')return;if(st==2&&!TR.pf){T
 if(!g||g.phase!='play'||g.tk!='mus')return;
 if(st==2&&!g.pf){const el=Math.max(0,n-g.t1);g.rem-=el;g.pos+=el/1000;clearTimeout(tm);g.pf=true;g.tEnd=n+g.rem;upd()}
 else if(st==1&&g.pf){g.pf=false;g.t1=n;g.tEnd=n+g.rem;clearTimeout(tm);tm=setTimeout(endRound,g.rem);upd()}}catch(_){}}
-function maskRefresh(){try{const solo=typeof TR!='undefined'&&TR.on,ph=solo?TR.phase:g.phase;setMask(maskTxt(ph=='ready'?'lancer':ph=='wait'?'reprendre':ph=='play'?'pause':solo&&$('sf')?'rejouer':'',solo));const m=document.querySelector('#ytw>div:not(#lo)');if(m)m.style.pointerEvents=(solo&&ph=='play')?'auto':'none'}catch(_){}}
+function maskRefresh(){try{const solo=typeof TR!='undefined'&&TR.on,ph=solo?TR.phase:g.phase;const tx=maskTxt(ph=='ready'?'lancer':ph=='wait'?'reprendre':ph=='play'?'pause':solo&&$('sf')?'rejouer':'',solo);setMask(tx);const m=document.querySelector('#ytw>div:not(#lo)');if(m){const pc=!!(tx&&$('sf')&&MPC());m.style.pointerEvents=(solo&&ph=='play')||pc?'auto':'none';m.style.zIndex=pc?4:'';m.style.cursor=pc?'pointer':'';m.title=pc?tx.replace(/^Touche ici<br>pour (\S)/,(_,c)=>c.toUpperCase()):'';m.onclick=pc?maskClick:null}}catch(_){}}
+/* à la souris (ordinateur), tout le carré noir est le bouton : il passe devant le lecteur, ce qui évite aussi la bulle « Regarder la vidéo » de YouTube.
+   Au toucher (téléphone), rien ne change : le toucher traverse jusqu'au lecteur. */
+function MPC(){try{return matchMedia('(hover:hover) and (pointer:fine)').matches}catch(_){return false}}
+function maskClick(ev){ev.preventDefault();ev.stopPropagation();const f=$('sf');if(!f||(typeof TR!='undefined'&&TR.on&&TR.phase=='play'))return;const pl=YS!=1;try{f.contentWindow.postMessage(JSON.stringify({event:'command',func:pl?'playVideo':'pauseVideo',args:'',id:1,channel:'widget'}),'*')}catch(_){}
+if(pl&&f._cb){if(BL)window.removeEventListener('blur',BL);setTimeout(()=>{if($('sf')!==f)return;if(f._dir)f._cb();else npWatch(f,f._cb)},350)}}
 function maskTxt(v,solo){if(v=='rejouer')return YS==1?'':'Touche ici<br>pour réécouter';if(solo&&v!='lancer')return '';if(YS==1)return 'Touche ici<br>pour arrêter la musique';if(v=='lancer')return 'Touche ici<br>pour lancer la musique';if(v=='reprendre'||(v=='pause'&&YS==2))return 'Touche ici<br>pour reprendre la musique';return ''}
 function setMask(txt){const m=document.querySelector('#ytw>div:not(#lo)');if(!m)return;const k=txt||'';if(m.dataset.k===k)return;m.dataset.k=k;m.innerHTML=txt?`<span style="font-size:36px">👆</span><span style="font-size:15px;font-weight:700;line-height:1.25;padding:0 10px;text-align:center;color:#fff">${txt}</span>`:'🎵'}
 let lastSt=null,lastPh='';
