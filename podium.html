@@ -72,12 +72,13 @@ if(f.length>=5){const w=win.length/f.length;if(w>=.8)add(15,`${win.length} titre
 /* 2. un rythme trop régulier */
 if(f.length>=6){const m=moy(f.map(reel)),et=Math.sqrt(moy(f.map(x=>(reel(x)-m)**2)));if(et<=2&&et<=.3*m&&m>=3.5)add(10,`Temps de buzz très réguliers (${s1(m)} s en moyenne, à ${s1(et)} s près) : comme une appli qui reconnaît chaque morceau au même rythme`)}
 /* 3. pas un seul buzz « réflexe » alors qu'il trouve beaucoup */
-if(f.length>=7&&!f.some(x=>reel(x)<2.5))add(5,`Aucun buzz en moins de 2,5 s alors qu'il trouve ${f.length} titres : un vrai connaisseur buzze souvent dès les premières notes`);
+const rx=f.filter(x=>reel(x)<2.5);if(f.length>=7&&!rx.length)add(5,`Aucun buzz en moins de 2,5 s alors qu'il trouve ${f.length} titres : un vrai connaisseur buzze souvent dès les premières notes`);
+if(rx.length)add(-Math.min(10,rx.length*5),`À décharge : ${rx.length} titre${rx.length>1?'s':''} trouvé${rx.length>1?'s':''} en moins de 2,5 s d'écoute, plus vite que Shazam lancé au début du morceau : ${rx.map(x=>`« ${x.ti} » (${s1(reel(x))} s)`).join(', ')}`);
 /* 4. il buzze sur tout, vite, même sur ce qu'il ne connaît pas */
 if(bz.length>=9&&bz.length-f.length>=2&&moy(bz.map(reel))<=9)add(10,`Buzz sur ${bz.length} titres sur 10 en ${s1(moy(bz.map(reel)))} s en moyenne, même sur ceux qu'il n'a pas trouvés`);
 /* 5. il trouve, au rythme de Shazam, des titres que presque personne ne trouve */
 const rares=d.map((x,i)=>({x,t:tauxTitre(r,i,L)})).filter(o=>o.t!==null&&o.t<=.25&&trouve(o.x));
-if(rares.length)add(Math.min(30,rares.reduce((n,o)=>n+(o.x.a&&o.x.t?10:6),0)),`${rares.length} titre${rares.length>1?'s':''} rarement trouvé${rares.length>1?'s':''} par les autres joueurs : ${rares.map(o=>`« ${o.x.ti} »${o.x.a&&o.x.t?' (artiste et titre)':''} trouvé par ${Math.round(o.t*100)} % des autres`).join(', ')}`);
+if(rares.length)add(Math.min(30,rares.reduce((n,o)=>n+(o.x.a&&o.x.t?10:3),0)),`${rares.length} titre${rares.length>1?'s':''} rarement trouvé${rares.length>1?'s':''} par les autres joueurs : ${rares.map(o=>`« ${o.x.ti} »${o.x.a&&o.x.t?' (artiste et titre)':''} trouvé par ${Math.round(o.t*100)} % des autres`).join(', ')}`);
 const autres=L.filter(x=>x!==r&&!x.fraude&&!x.cache&&!x.attente&&detsDe(x).length===10).map(x=>detsDe(x).filter(trouve).length).sort((a,b)=>a-b);
 if(autres.length>=4){const med=autres[Math.floor(autres.length/2)];if(f.length>=7&&f.length>=med+4)add(10,`${f.length} titres trouvés, alors que la moitié des joueurs du jour en trouve ${med} ou moins`)}
 /* artiste ET titre complets bien plus souvent que les autres */
