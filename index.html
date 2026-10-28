@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.9';
+const VERSION='2.1.10';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -708,7 +708,7 @@ function defiRng(k){let h=2166136261;for(const c of k)h=Math.imul(h^c.charCodeAt
 /* à partir de ce jour, chaque titre reçoit sa propre note du jour (calculée à partir de la date, de la clé et de son identifiant) et le défi prend les 10 meilleures notes :
    enlever ou ajouter un titre dans titres.json en cours de journée ne change plus les autres titres du jour (seul un titre enlevé qui faisait partie des 10 est remplacé) */
 const DEFI_STABLE='2026-10-27';
-/* 2 titres de secours (11e et 12e notes du jour) : ils remplacent, dans l'ordre, un titre qui ne se lance pas (« Passer »), pour que le joueur réponde quand même à 10 titres */
+/* 2 remplacements au plus par défi : un titre qui ne se lance pas (« Passer ») est remplacé par le titre le plus proche (même genre, même langue, année la plus proche, voir defiSubPick), pour que le joueur réponde quand même à 10 titres ; le jour d'Halloween, les 2 titres de secours fixes (11e et 12e) */
 const DEFI_SUB=2;
 function defiPick(L,d,k){if(d>=DEFI_STABLE){const x=d>=HAL_X&&d<HAL_D?HAL_IDS:[],kk=d+'#'+(k||'buzzhit')+'#';return L.filter(t=>!x.includes(t.id)).map(t=>[defiRng(kk+t.id)(),t]).sort((a,b)=>a[0]-b[0]||(a[1].id<b[1].id?-1:1)).slice(0,DEFI_N+DEFI_SUB).map(a=>a[1])}
 const r=defiRng(d+'#'+(k||'buzzhit'));
@@ -742,11 +742,11 @@ function essaiFin(){const sc=TR.score;if(TR.hal){const g=TR.g;trainStop();A.inne
 function defiStart(p,ne){const st=defiGet();if(st&&st.done){trainStop();defiDone(st);return}if(frBloque()&&!(st&&st.k)){trainStop();A.innerHTML='<img class="logo sm" src="BuzzHit.png" alt="BuzzHit"><div class="card" id="dfl"></div>';defiCleErr(new Error('bloque'),p);return}if(!st&&!p){defiAsk();return}if(!st&&!ne&&essaiOk()){essaiAsk(p);return}
 trainStop();A.innerHTML='<img class="logo sm" src="BuzzHit.png" alt="BuzzHit"><div class="card" id="dfl"><p class="m" style="text-align:center">🎯 Préparation du défi du jour…</p></div>';
 const d0=st?st.d:defiDay();(d0<DEFI_CLE?Promise.resolve(null):st&&st.k?Promise.resolve(st.k):defiCle(d0,st?st.p:p)).then(k=>defiPool().then(L=>[k,L])).then(([k,L])=>{if(!$('dfl'))return;const d=d0,LH=L;/* un titre ajouté avec « defi »: "AAAA-MM-JJ" n'entre dans le défi qu'à partir de ce jour : ajouter des titres en journée ne change pas le défi du jour */L=L.filter(t=>(!t.defi||String(t.defi)<=d)&&!(d>=DEFI_SANSART&&SANSART.includes(t.genre)));const list=defiChoices(d===HAL_D?halList(LH,L,d,k):defiPick(L,d,k),L,d);if(list.length<DEFI_N){toast('⚠️ Base de titres indisponible, réessaie plus tard');trainStart();return}
-const s=st||{d,p,n:0,score:0,fa:0,ft:0,fy:0,bz:0,ms:0,fb:0,g:[]};if(k)s.k=k;(s.rp||[]).forEach((i,j)=>{if(list[DEFI_N+j])list[i]=list[DEFI_N+j]});if(s.open!=null){s.g[s.open]=0;(s.det=s.det||[])[s.open]=defiDet(list[s.open],{m:1});s.n=s.open+1;s.ms=(s.ms||0)+1;s.open=null;defiPut(s)}
+const s=st||{d,p,n:0,score:0,fa:0,ft:0,fy:0,bz:0,ms:0,fb:0,g:[]};if(k)s.k=k;const ex=list.map(t=>t.id);(s.rp||[]).forEach((i,j)=>{const t=s.rs&&s.rs[j]&&L.find(x=>x.id===s.rs[j]);if(t)list[i]=defiChoices([t],L,d)[0];else if(list[DEFI_N+j])list[i]=list[DEFI_N+j]});if(s.open!=null){s.g[s.open]=0;(s.det=s.det||[])[s.open]=defiDet(list[s.open],{m:1});s.n=s.open+1;s.ms=(s.ms||0)+1;s.open=null;defiPut(s)}
 if(!st){gc('defi-demarre','Défi du jour démarré');defiPut(s)}depEnvoi(s);
-TR={on:true,defi:1,dd:d,dp:s.p||'',dk:s.k||'',list,played:[],iv:setInterval(trainTick,250),len:DEFI_N,sv:Object.fromEntries(Object.keys(DEFI_SET).map(k=>[k,SET[k]]))};Object.assign(SET,DEFI_SET);trainReset();
-Object.assign(TR,{rp:s.rp||[],n:s.n,score:s.score,fa:s.fa,ft:s.ft,fy:s.fy,bz:s.bz,ms:s.ms||0,fb:s.fb||0,g:s.g||[],det:s.det||[]});keepAwake=true;wl(true);trainUI();trainNext()}).catch(e=>defiCleErr(e,p))}
-const defiState=()=>({rp:TR.rp||[],d:TR.dd,p:TR.dp,k:TR.dk||undefined,n:TR.n,score:TR.score,fa:TR.fa,ft:TR.ft,fy:TR.fy,bz:TR.bz,ms:TR.ms,fb:TR.fb||0,g:TR.g,det:TR.det||[]});
+TR={on:true,defi:1,dd:d,dp:s.p||'',dk:s.k||'',list,pool:d===HAL_D?null:L,ex,played:[],iv:setInterval(trainTick,250),len:DEFI_N,sv:Object.fromEntries(Object.keys(DEFI_SET).map(k=>[k,SET[k]]))};Object.assign(SET,DEFI_SET);trainReset();
+Object.assign(TR,{rp:s.rp||[],rs:s.rs||[],n:s.n,score:s.score,fa:s.fa,ft:s.ft,fy:s.fy,bz:s.bz,ms:s.ms||0,fb:s.fb||0,g:s.g||[],det:s.det||[]});keepAwake=true;wl(true);trainUI();trainNext()}).catch(e=>defiCleErr(e,p))}
+const defiState=()=>({rp:TR.rp||[],rs:TR.rs||[],d:TR.dd,p:TR.dp,k:TR.dk||undefined,n:TR.n,score:TR.score,fa:TR.fa,ft:TR.ft,fy:TR.fy,bz:TR.bz,ms:TR.ms,fb:TR.fb||0,g:TR.g,det:TR.det||[]});
 /* détail d'une réponse du défi, envoyé avec le résultat pour que l'éditeur puisse vérifier et corriger une réclamation */
 /* départage des ex aequo (podium) : buzz rapides, temps d'écoute, années exactes, à 1, 2, 3 ans, écart d'années ; ec = secondes d'écoute avant le buzz (extrait entier si pas de buzz), ye = écart avec la bonne année (plafonné à 10 ans ; 10 si pas d'année donnée) */
 const DEFI_YE=10;
@@ -881,8 +881,11 @@ function npWatch(f,cb){clearInterval(NPI);if(YS==1)return;const t0=Date.now();le
 function npShow(f){const w=$('ytw');if(!w||$('sf')!==f||YS==1)return;const old=$('npb');if(old)old.remove();const solo=typeof TR!='undefined'&&TR.on;const b=document.createElement('div');b.id='npb';b.style.cssText='margin:10px auto 0;max-width:340px;text-align:center;padding:10px;border:2px solid #ffb347;border-radius:12px';
 b.innerHTML='<div style="font-weight:700;color:#ffb347">⚠️ Le morceau ne se lance pas</div><p class="m" style="margin:6px 0 8px">Ton temps ne compte pas tant que la musique n\'a pas démarré.</p><button class="p" style="width:100%" onclick="npRetry()">🔄 Réessayer</button>'+(solo?'<button style="width:100%;margin-top:8px" onclick="npPass()">'+(npSub()?'⏭ Passer à un titre de remplacement':'⏭ Passer ce titre'+(TR.defi||TR.len?' (0 point)':''))+'</button>':'');w.insertAdjacentElement('afterend',b)}
 function npRetry(){const f=$('sf');npOff();if(f&&f._re)f._re()}
-const npSub=()=>TR.defi&&!TR.essai&&(TR.rp||[]).length<DEFI_SUB&&!!TR.list[DEFI_N+(TR.rp||[]).length];
-function npPass(){npOff();if(!(typeof TR!='undefined'&&TR.on)||TR.phase!='ready')return;if(npSub()){const j=TR.rp.length;TR.rp.push(TR.n);TR.list[TR.n]=TR.list[DEFI_N+j];defiSave();toast('🔁 Titre de remplacement : ce titre compte à la place');trainNext();return}if(TR.defi){TR.np=1;trainMiss();const d=TR.det&&TR.det[TR.n-1];if(d&&!TR.essai){d.s=NP_LI;defiSave()}}else if(TR.len){TR.np=1;trainMiss()}else trainNext()}
+const npSub=()=>TR.defi&&!TR.essai&&(TR.rp||[]).length<DEFI_SUB&&(TR.pool?!!defiSubPick():!!TR.list[DEFI_N+(TR.rp||[]).length]);
+/* titre de remplacement : le plus proche de celui qui ne se lance pas (même genre, même langue, année la plus proche), le même pour tous les joueurs à qui ce titre fait défaut */
+function defiSubPick(){const f=TR.list[TR.n];if(!f||!TR.pool)return null;const no=new Set([...(TR.ex||[]),...(TR.rs||[]),...TR.list.map(t=>t.id)]),hx=TR.dd>=HAL_X&&TR.dd<HAL_D?HAL_IDS:[],kk=TR.dd+'#sub#'+(TR.dk||'buzzhit')+'#'+f.id+'#';let b=null,bs=1e9;
+for(const t of TR.pool){if(no.has(t.id)||hx.includes(t.id)||(dnorm(t.artist)==dnorm(f.artist)&&dnorm(t.title)==dnorm(f.title)))continue;const sc=(t.genre===f.genre?0:100)+(t.langue===f.langue?0:20)+Math.abs((+t.year||0)-(+f.year||0))+defiRng(kk+t.id)()*.99;if(sc<bs){bs=sc;b=t}}return b}
+function npPass(){npOff();if(!(typeof TR!='undefined'&&TR.on)||TR.phase!='ready')return;if(npSub()){const j=TR.rp.length,t=TR.pool?defiSubPick():null;TR.rp.push(TR.n);if(t){(TR.rs=TR.rs||[]).push(t.id);TR.list[TR.n]=defiChoices([t],TR.pool,TR.dd)[0]}else TR.list[TR.n]=TR.list[DEFI_N+j];defiSave();toast(t?'🔁 Titre de remplacement, du même genre et d\'une année proche : il compte à la place':'🔁 Titre de remplacement : ce titre compte à la place');trainNext();return}if(TR.defi){TR.np=1;trainMiss();const d=TR.det&&TR.det[TR.n-1];if(d&&!TR.essai){d.s=NP_LI;defiSave()}}else if(TR.len){TR.np=1;trainMiss()}else trainNext()}
 function trainNext(){if(!TR.on||TR.phase=='final')return;rmIframe();TR.np=0;TR.sk=0;TR.ec=null;if(BL)window.removeEventListener('blur',BL);
 if(TR.len&&TR.n>=TR.len){trainFinal();return}
 if(TR.defi){const t=TR.list[TR.n];TR.cur=t;TR.phase='ready';TR.a=TR.t=false;TR.da=TR.dt=0;TR.qa=TR.qt=null;TR.fast=false;trainRender();mk(t,0,trainGo);return}
