@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.6';
+const VERSION='2.1.7';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -985,7 +985,7 @@ A.innerHTML=`${W}<img class="logo sm" src="BuzzHit.png" alt="BuzzHit"><div class
 ${dbInfoBlock()}`;refreshDbInfo();yk.forEach(k=>{const el=$(k.i);if(el){el.value=k.v;if(k.f)el.focus()}})}
 function loadTitres(){return fetch('titres.json?v='+Date.now(),{cache:'no-store'}).then(x=>x.ok?x.json():Promise.reject(new Error('HTTP '+x.status))).then(L=>{const del=JSON.parse(localStorage.getItem('bt_del')||'[]');const had=DB.length>0;let n=0,maj=0,rm=0;const keep=new Set();L.forEach(x=>{const v=x.vid||vid(x.url||'');if(v)keep.add(v);if(x.id)keep.add(String(x.id))});L.forEach(x=>{const v=x.vid||vid(x.url||'');if(!v||!x.artist||!x.title||!x.year)return;const id=x.id||v;if(del.includes(id))return;
 const rec={id,vid:v,artist:x.artist,title:x.title,year:+x.year,genre:x.genre||'',langue:x.langue||'',verifie:x.verifie||'',vol:+x.vol||0,defi:x.defi||'',sur:x.surnoms||'',base:1};
-const existing=DB.find(d=>d.id==id||d.vid==v);if(existing){Object.assign(existing,rec);maj++}else{DB.push(rec);n++}});if(keep.size)for(let i=DB.length-1;i>=0;i--){const t=DB[i];if(t.base&&!keep.has(String(t.id))&&!keep.has(t.vid)){DB.splice(i,1);rm++}}if(n||maj||rm){save();if(peer&&tab=='b')hostUI()}if(n&&had){try{const o=newGet();localStorage.setItem('bt_newn',JSON.stringify({n:(o?o.n:0)+n,ts:Date.now(),views:NEWSEEN?1:0}))}catch(_){}if($('hm'))home()}LOADERR='';refreshDbInfo()}).catch(er=>{LOADERR=loadErrText(er);refreshDbInfo();setTimeout(()=>toast('⚠️ '+LOADERR),1500)})}
+const existing=DB.find(d=>d.id==id||d.vid==v);if(existing){Object.assign(existing,rec);maj++}else{DB.push(rec);n++}});if(keep.size)for(let i=DB.length-1;i>=0;i--){const t=DB[i];if(t.base&&!keep.has(String(t.id))&&!keep.has(t.vid)){DB.splice(i,1);rm++}}/* titre ajouté à la main puis repris dans la base officielle avec un autre lien : on garde la version officielle (même artiste principal + même titre, sans accents/majuscules/ponctuation/parenthèses) */{const ak=t=>nrm(t.artist).split(/ (?:ft|feat|featuring) /)[0].replace(/ /g,'')+'|'+nrmT(t.title).replace(/ /g,''),bk=new Set(DB.filter(t=>t.base).map(ak));for(let i=DB.length-1;i>=0;i--){const t=DB[i];if(!t.base&&bk.has(ak(t))){DB.splice(i,1);rm++}}}if(n||maj||rm){save();if(peer&&tab=='b')hostUI()}if(n&&had){try{const o=newGet();localStorage.setItem('bt_newn',JSON.stringify({n:(o?o.n:0)+n,ts:Date.now(),views:NEWSEEN?1:0}))}catch(_){}if($('hm'))home()}LOADERR='';refreshDbInfo()}).catch(er=>{LOADERR=loadErrText(er);refreshDbInfo();setTimeout(()=>toast('⚠️ '+LOADERR),1500)})}
 LOADED=loadTitres();
 /* touche Entrée dans la saisie de l'année = bouton Valider juste à côté */
 document.addEventListener('keydown',ev=>{const i=ev.target;if(ev.key!=='Enter'||!i||!['tyi','yin','vti'].includes(i.id))return;const b=i.nextElementSibling;if(b&&b.tagName=='BUTTON'&&!b.disabled){ev.preventDefault();b.click()}});
