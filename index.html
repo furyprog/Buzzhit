@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.12';
+const VERSION='2.1.13';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -1039,7 +1039,7 @@ fetch(RAPPEL_URL+'/monresultat?d='+encodeURIComponent(s.d)+'&id='+id,{cache:'no-
 const b=defiBest(),fr=defiFr(c.d);try{if(b&&b.date===fr&&b.pts===was||!b||c.score>b.pts)localStorage.setItem('bt_defibest',JSON.stringify({pts:c.score,date:fr}))}catch(_){}
 if($('dfdone'))defiDone(c);else if($('hm'))home()}).catch(()=>{})}
 /* chaque défi commencé est signalé au serveur avec le nombre de titres joués (même s'il n'est jamais terminé), pour que l'éditeur repère les défis abandonnés */
-function depEnvoi(s){if(!RAPPEL_URL||!s||!s.d||!s.p)return;const id=resId();if(!id)return;fetch(RAPPEL_URL+'/depart',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({d:s.d,id,p:String(s.p).slice(0,16),n:Math.min(DEFI_N,s.n||0)})}).catch(()=>{})}
+function depEnvoi(s){if(!RAPPEL_URL||!s||!s.d||!s.p)return;const id=resId();if(!id)return;fetch(RAPPEL_URL+'/depart',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({d:s.d,id,p:String(s.p).slice(0,16),n:Math.min(DEFI_N,s.n||0),score:s.score||0,det:(s.det||[]).filter(Boolean).slice(0,10),v:VERSION})}).catch(()=>{})}
 function resEnvoi(){if(!RAPPEL_URL)return;let s=null;try{s=JSON.parse(localStorage.getItem('bt_defi')||'null');if(!s||!s.done||!s.p||localStorage.getItem('bt_defienv')===s.d)return}catch(_){return}const id=resId();if(!id)return;
 fetch(RAPPEL_URL+'/resultat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({d:s.d,id,p:String(s.p).slice(0,16),score:s.score,fa:s.fa,ft:s.ft,fy:s.fy,fb:s.fb||0,det:(s.det||[]).slice(0,10),v:VERSION})}).then(r=>{if(r.ok||r.status===400)try{localStorage.setItem('bt_defienv',s.d)}catch(_){}if(r.ok)setTimeout(defiMaj,300)}).catch(()=>{})}
 /* le défi du jour est fini : pas de rappel aujourd'hui */
