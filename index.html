@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.13';
+const VERSION='2.1.14';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -659,7 +659,16 @@ function artExact(x,a,s){if(s&&surL(s).some(n=>fzExact(x,[n])))return true;if(fz
 /* surnoms (titres.json « surnoms » : a|b) : 4 lettres ou moins = mot exact, sinon même tolérance que le nom */
 function surL(s){return String(s||'').split('|').map(y=>y.trim()).filter(Boolean)}
 function surHit(x,s){return surL(s).some(n=>fzW(n).join('').length<=4?fzExact(x,[n]):fzHit(x,[n]))}
-function artHit(x,a,s){if(s&&surHit(x,s))return true;if(fzHit(x,artCands(a)))return true;const ps=String(a||'').split(/\s*(?:,|&|\+|\s(?:et|and|x|feat\.?|ft\.?|featuring|with|avec|vs\.?)\s)\s*/i).map(y=>y.trim()).filter(Boolean);return ps.length>1&&ps.every(y=>fzHit(x,[y,sansArt(y)]))}
+/* plusieurs artistes dits d'un coup (« Juliette Armanet Clara Luciani ») : si la phrase contient en entier le nom d'un autre artiste de la base,
+   l'artiste n'est pas accordé (sauf un nom qui partage un mot avec la bonne réponse, comme un featuring, ou qui fait partie du titre) */
+let ARTK=null;function autreArt(x,a,s,ti){if(!ARTK||ARTK.n!==DB.length){const seen=new Set();ARTK=[];ARTK.n=DB.length;DB.forEach(t=>{const k=fzW(t.artist);const j=k.join(' ');if(k.join('').length>=5&&!seen.has(j)){seen.add(j);ARTK.push(k)}})}
+const w=fzW(x).join(' '),bon=new Set([...fzW(a),...surL(s).flatMap(n=>fzW(n)),...fzW(ti||'')].filter(y=>y.length>=4));
+const ref=[a,ti||'',...surL(s)].map(y=>' '+fzW(y).join(' ')+' '),dans=(t,k)=>t.includes(' '+k.join(' ')+' ');
+/* un mot proche d'un mot de la bonne réponse vient sans doute d'une erreur de dictée (« Future Club » pour Culture Club) : il ne compte pas comme un autre artiste */
+const mots=[a,ti||'',...surL(s)].flatMap(y=>fzW(y)).filter(y=>y.length>=4),proche=y=>mots.some(m=>vLev(y,m)<=(Math.min(y.length,m.length)<=5?1:2));
+return ARTK.some(k=>!k.some(y=>bon.has(y))&&!ref.some(t=>dans(t,k))&&dans(' '+w+' ',k)&&!k.some(proche))}
+function artHit(x,a,s,ti){return artHit0(x,a,s)&&!autreArt(x,a,s,ti)}
+function artHit0(x,a,s){if(s&&surHit(x,s))return true;if(fzHit(x,artCands(a)))return true;const ps=String(a||'').split(/\s*(?:,|&|\+|\s(?:et|and|x|feat\.?|ft\.?|featuring|with|avec|vs\.?)\s)\s*/i).map(y=>y.trim()).filter(Boolean);return ps.length>1&&ps.every(y=>fzHit(x,[y,sansArt(y)]))}
 function artCands(a){a=String(a||'');const m=a.split(/\s+(?:feat\.?|ft\.?|featuring|with|avec|x|vs\.?)\s+/i)[0];return [...new Set([a,m,sansArt(a),sansArt(m)])]}
 /* « Film - Chanson » : le film seul ou la chanson seule comptent comme titre ; le texte entre parenthèses aussi
    (titre français ou nom du film, ex. « Despicable Me (Moi, moche et méchant) »), sauf « Theme », « générique »… */
@@ -671,7 +680,7 @@ let tot=0,cur=0,any=0;for(const w of t.split(' ')){if(w=='et'&&any)continue;if(w
 if(!any)return null;let y=tot+cur;if(y<100)y+=y>=30?1900:2000;return y>=1900&&y<=2100?y:null}
 /* côté hôte : réponse reçue du joueur qui a la main (ou de l'hôte lui-même) */
 function vocIn(n,m){if(!g||g.phase!='judge'||g.buzz[g.active]!=n||!g.cur)return;if(m.rn!=null&&(m.rn!=g.n||m.ac!=g.active))return;const al=(Array.isArray(m.alts)?m.alts:[]).map(x=>String(x||'').slice(0,200).trim()).filter(Boolean).slice(0,5),yr=g.j.a||g.j.t;if(!al.length)return;
-if(m.k=='r'&&!yr){let a=0,t=0;al.forEach(x=>{if(!g.na&&artHit(x,g.cur.artist,g.cur.sur))a=1;if(fzHit(x,titCands(g.cur.title)))t=1});g.va={n,txt:al[0],a,t,k:'r'};clearTimeout(vocT);
+if(m.k=='r'&&!yr){let a=0,t=0;al.forEach(x=>{if(!g.na&&artHit(x,g.cur.artist,g.cur.sur,g.cur.title))a=1;if(fzHit(x,titCands(g.cur.title)))t=1});g.va={n,txt:al[0],a,t,k:'r'};clearTimeout(vocT);
 if(!a&&!t){snd('gong');g.exp=false;wrong();return}if(a)judge('a');if(t)judge('t');if(g.phase=='judge'&&YM()==2)rev();return}
 if(m.k=='y'&&yr&&YM()!=2&&g.tk=='yr'){let y=null;for(const x of al){y=yearOf(x);if(y)break}const d=y?Math.abs(y-g.cur.year):99;clearTimeout(vocT);g.va=Object.assign({},g.va,{k:'y',ytx:al[0],y,yp:(d==0?2:d<=SET.yd?1:0)*(g.bo?2:1)});yv=y?String(y):'';yearEnd()}}
 function vocLate(k){if(!g||g.phase!='judge'||g.n+'|'+g.active+'|'+g.tk!=k)return;const n=g.buzz[g.active];
@@ -906,7 +915,7 @@ function trainBuzz(){if(TR.phase!='play')return;if(TR.defi){const ec=Math.max(0,
 const VMOTS=new Set(('cest est ce de du des le la les un une et par the by of and from feat avec je crois pense que qui euh heu ben bah alors titre artiste chanson groupe its is it this that song oui non voila').split(' '));
 function vBruit(x,t){const ok=new Set(nrm([t.artist,t.title,t.sur||''].join(' ').replace(/\|/g,' ')).split(' '));return nrm(x).split(' ').filter(w=>w.length>=3&&!VMOTS.has(w)&&!ok.has(w)&&!/^\d+$/.test(w)).length}
 function trainVoc(k,alts){const t=TR.cur;if(!TR.on||!t)return;alts=(alts||[]).filter(Boolean);
-if(k=='r'&&TR.phase=='think'){TR.a=!TR.na&&alts.some(x=>artHit(x,t.artist,t.sur));TR.t=alts.some(x=>fzHit(x,titCands(t.title)));const bv=vBruit(alts[0],t)>=3;TR.da=TR.a&&(bv||!alts.some(x=>artExact(x,t.artist,t.sur)))?1:0;TR.dt=TR.t&&(bv||!alts.some(x=>fzExact(x,titCands(t.title))))?1:0;TR.said=alts[0]||'';TR.ysaid='';TR.xp=0;TR.lt=0;if((TR.a||TR.t)&&SET.ymode!=2){TR.phase='reveal';TR.end=Date.now()+SET.tAnn*1000;TR.lk=0;trainRender()}else{TR.phase='reveal';trainResult(0)}return}
+if(k=='r'&&TR.phase=='think'){TR.a=!TR.na&&alts.some(x=>artHit(x,t.artist,t.sur,t.title));TR.t=alts.some(x=>fzHit(x,titCands(t.title)));const bv=vBruit(alts[0],t)>=3;TR.da=TR.a&&(bv||!alts.some(x=>artExact(x,t.artist,t.sur)))?1:0;TR.dt=TR.t&&(bv||!alts.some(x=>fzExact(x,titCands(t.title))))?1:0;TR.said=alts[0]||'';TR.ysaid='';TR.xp=0;TR.lt=0;if((TR.a||TR.t)&&SET.ymode!=2){TR.phase='reveal';TR.end=Date.now()+SET.tAnn*1000;TR.lk=0;trainRender()}else{TR.phase='reveal';trainResult(0)}return}
 if(k=='y'&&TR.phase=='reveal'){let y=0;for(const x of alts){y=yearOf(x)||0;if(y)break}TR.ysaid=alts[0]||'';trainResult(y)}}
 /* temps écoulé : ce qui a été dit est envoyé ; sans rien, la réponse compte comme non trouvée */
 function trainExpV(){if(TR.xp)return;TR.xp=1;snd('gong');const n=TR.n,ph=TR.phase;const kb=VO.kb;vAtExp();setTimeout(()=>{if(TR.on&&TR.n==n&&TR.phase==ph&&!VO.sent)trainVoc(ph=='think'?'r':'y',[])},kb?KB_GR*1000:2500)}
