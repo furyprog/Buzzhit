@@ -16,7 +16,7 @@ span.al{display:inline-block;font-size:12px;color:#ffb347;white-space:nowrap}but
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#000c;padding:10px 16px;border-radius:10px;pointer-events:none;display:none}
 </style></head><body><main>
 <h1>🏆 Podium du Défi du jour</h1>
-<div class="card"><div class="row"><input id="mdp" type="password" placeholder="Mot de passe" autocomplete="current-password" style="flex:1 1 180px"><input id="jour" type="date"><button class="p" onclick="charger()">Afficher</button></div>
+<div class="card"><div class="row"><input id="mdp" type="password" placeholder="Mot de passe" autocomplete="current-password" style="flex:1 1 180px"><input id="jour" type="date"><button class="p" onclick="charger()">Afficher</button><button onclick="$('jour').value=jourParis();charger()">📅 Aujourd'hui</button></div>
 <p class="m" style="margin:8px 0 0">Page réservée à l'éditeur. Par défaut, elle affiche le défi d'hier. Le mot de passe est retenu sur cet appareil.</p><p id="err"></p></div>
 <div id="res" hidden>
 <div class="card"><canvas id="cv" width="1600" height="900"></canvas>
