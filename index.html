@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.19';
+const VERSION='2.1.20';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -761,7 +761,7 @@ const defiState=()=>({rp:TR.rp||[],rs:TR.rs||[],d:TR.dd,p:TR.dp,k:TR.dk||undefin
 const DEFI_YE=10;
 const defiDep=s=>{const d=s&&s.det;if(!Array.isArray(d)||d.length<DEFI_N||!d.every(x=>x&&typeof x.ec=='number'&&typeof x.ye=='number'))return '';const ye=d.reduce((n,x)=>n+x.ye,0),ec=Math.round(d.reduce((n,x)=>n+x.ec,0)*10)/10;return `<div class="ld"><span>📅 Années à 1 / 2 / 3 ans près</span><b>${d.filter(x=>x.ye===1).length} / ${d.filter(x=>x.ye===2).length} / ${d.filter(x=>x.ye===3).length}</b></div><div class="ld"><span>⏱ Temps d'écoute avant tes buzz</span><b>${String(ec).replace('.',',')} s</b></div><div class="ld"><span>📏 Écart d'années (total)</span><b>${ye} an${ye>1?'s':''}</b></div><p class="m" style="font-size:12px;margin:6px 0 0">⚖️ En cas d'égalité de points, on départage par les buzz rapides, puis le temps d'écoute (le plus court gagne), les années exactes, les années à 1, 2 et 3 ans près et enfin l'écart d'années (le plus petit gagne).</p>`};
 const defiDet=(c,o)=>Object.assign({ar:String(c&&c.artist||'').slice(0,120),ti:String(c&&c.title||'').slice(0,120),an:c&&+c.year||0,a:0,t:0,yp:0,fz:0,m:0,s:'',ys:'',ec:DEFI_SET.maxD,ye:DEFI_YE},o);
-function defiSave(open){if(!TR.defi||TR.essai)return;const s=defiState();s.open=open==null?null:open;if(TR.n>=DEFI_N)s.done=1;defiPut(s);depEnvoi(s)}
+function defiSave(open){if(!TR.defi||TR.essai)return;const s=defiState();s.open=open==null?null:open;if(TR.n>=DEFI_N)s.done=1;defiPut(s);depEnvoi(s);/* résultat envoyé dès la réponse du dernier titre, sans attendre l'écran final (si le joueur ferme l'appli avant) */if(s.done&&s.open==null&&!defiSave.t)defiSave.t=setTimeout(()=>{defiSave.t=0;resEnvoi()},1500)}
 function defiFinal(){if(TR.phase=='final')return;try{localStorage.setItem('bt_defin',defiNb()+1)}catch(_){}TR.phase='final';rmIframe();defiSave();const b=defiBest();TR.prev=b;TR.newRec=!b||TR.score>b.pts;if(TR.newRec)try{localStorage.setItem('bt_defibest',JSON.stringify({pts:TR.score,date:defiFr(TR.dd)}))}catch(_){}
 gc('defi-fini','Défi du jour terminé');rapJoue();resEnvoi();snd(TR.newRec?'win':'ok');trainRender()}
 /* logos officiels (Simple Icons, licence CC0) */
