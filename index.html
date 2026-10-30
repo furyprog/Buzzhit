@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.21';
+const VERSION='2.1.22';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -674,10 +674,25 @@ function artCands(a){a=String(a||'');const m=a.split(/\s+(?:feat\.?|ft\.?|featur
    (titre français ou nom du film, ex. « Despicable Me (Moi, moche et méchant) »), sauf « Theme », « générique »… */
 function titCands(t){t=String(t||'');const p=t.replace(/[\(\[][^\)\]]*[\)\]]/g,' '),d=p.split(/\s+-\s+/),q=(t.match(/[\(\[][^\)\]]*[\)\]]/g)||[]).map(x=>x.slice(1,-1).trim()).filter(x=>x&&!/^((main|love|feather)\s+)?(theme|title)$|^g[ée]n[ée]rique|^bo$/i.test(x));return [...new Set([t,p,...d,sansArt(p),...d.map(sansArt),...q,...q.map(sansArt)])]}
 /* année dite : « 1984 », « 84 », « mille neuf cent quatre-vingt-quatre », « dix-neuf cent quatre-vingt-quatre », « deux mille dix »… */
-function yearOf(s){const t=nrm(s),m=t.match(/\b(1[89]|20)\s?(\d\d)\b/);if(m)return +(m[1]+m[2]);
+function yearOf(s){const tk=nrm(s).split(' ').filter(Boolean);/* seule la PREMIÈRE année dite compte (« 1982… 1987 » = 1982) */
+for(let i=0;i<tk.length;i++){const r=yrNb(tk,i);if(!r)continue;let v=r[0],n=r[1];
+if(v>=18&&v<=20){const q=yrNb(tk,i+n);if(q&&q[0]<100&&q[0]>=0&&(/^\d\d$/.test(tk[i+n])||!/^\d/.test(tk[i+n]))){v=v*100+q[0];n+=q[1]}}
+if(v<10&&!/^\d\d$/.test(tk[i])){i+=n-1;continue}if(v<100)v+=v>=30?1900:2000;if(v>=1900&&v<=2100)return v;i+=n-1}return null}
+/* un nombre (en chiffres ou en lettres) qui commence au mot i : [valeur, nombre de mots] ; s'arrête dès qu'un mot ne peut plus suivre en français (« quatre-vingt-deux quatre-vingt-sept » = 82) */
+function yrNb(tk,i){const w0=tk[i];if(w0==null)return null;if(/^\d+$/.test(w0))return [+w0,1];
 const W={zero:0,un:1,une:1,deux:2,trois:3,quatre:4,cinq:5,six:6,sept:7,huit:8,neuf:9,dix:10,onze:11,douze:12,treize:13,quatorze:14,quinze:15,seize:16,vingt:20,vingts:20,trente:30,quarante:40,cinquante:50,soixante:60,septante:70,huitante:80,octante:80,nonante:90};
-let tot=0,cur=0,any=0;for(const w of t.split(' ')){if(w=='et'&&any)continue;if(w=='mille'||w=='mil'){tot+=(cur||1)*1000;cur=0;any=1}else if(w=='cent'||w=='cents'){cur=(cur||1)*100;any=1}else if(w in W){const v=W[w];if(v==20&&cur%100==4)cur+=76;else cur+=v;any=1}else if(/^\d+$/.test(w)){cur+=+w;any=1}else if(any)break}
-if(!any)return null;let y=tot+cur;if(y<100)y+=y>=30?1900:2000;return y>=1900&&y<=2100?y:null}
+const cl=w=>w=='mille'||w=='mil'?'m':w=='cent'||w=='cents'?'c':!(w in W)?'':W[w]<10?'u':W[w]<20?'d':'t';
+let tot=0,cur=0,last='',lv=0,j=i;
+for(;j<tk.length;j++){let w=tk[j];if(w=='et'&&last&&(tk[j+1]=='un'||tk[j+1]=='une'||tk[j+1]=='onze'))continue;const c=cl(w);if(!c)break;const v=W[w];
+let ok;if(!last)ok=1;else if(last=='u')ok=c=='c'&&cur<20||c=='m'&&!tot||c=='t'&&v==20&&lv==4&&cur%100==4;
+else if(last=='d')ok=c=='u'&&lv==10&&v>=7||c=='c'&&cur%100<20&&cur<100||c=='m'&&!tot;
+else if(last=='t')ok=c=='u'&&v>0||c=='d'&&(lv==60||lv==80)||c=='m'&&!tot||c=='t'&&v==20&&lv==4;
+else if(last=='c')ok=c=='u'||c=='d'||c=='t'||c=='m'&&!tot;
+else ok=(c=='u'||c=='d'||c=='t'||c=='c')&&!cur;
+if(ok&&(tk[j-1]=='vingts'||tk[j-1]=='cents')&&j>i&&c!='m')ok=0;if(!ok)break;
+if(c=='m'){tot+=(cur||1)*1000;cur=0}else if(c=='c')cur=(cur||1)*100;else if(c=='t'&&v==20&&cur%100==4&&last=='u')cur+=76;else cur+=v;
+last=c;lv=c=='t'&&v==20&&cur%100==80?80:v}
+return j>i?[tot+cur,j-i]:null}
 /* côté hôte : réponse reçue du joueur qui a la main (ou de l'hôte lui-même) */
 function vocIn(n,m){if(!g||g.phase!='judge'||g.buzz[g.active]!=n||!g.cur)return;if(m.rn!=null&&(m.rn!=g.n||m.ac!=g.active))return;const al=(Array.isArray(m.alts)?m.alts:[]).map(x=>String(x||'').slice(0,200).trim()).filter(Boolean).slice(0,5),yr=g.j.a||g.j.t;if(!al.length)return;
 if(m.k=='r'&&!yr){let a=0,t=0;al.forEach(x=>{if(!g.na&&artHit(x,g.cur.artist,g.cur.sur,g.cur.title))a=1;if(fzHit(x,titCands(g.cur.title)))t=1});g.va={n,txt:al[0],a,t,k:'r'};clearTimeout(vocT);
