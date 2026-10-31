@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.28';
+const VERSION='2.1.29';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -1205,7 +1205,12 @@ if(/[?&]defi=1/.test(location.search)){history.replaceState(null,'',location.pat
 /* au lancement et au retour dans l'appli : y a-t-il une nouvelle version en ligne ? */
 let verNo='',verAt=0;const verGt=(a,b)=>{a=a.split('.').map(Number);b=b.split('.').map(Number);for(let i=0;i<Math.max(a.length,b.length);i++){if((a[i]||0)!=(b[i]||0))return (a[i]||0)>(b[i]||0)}return false};
 async function verCheck(){if(Date.now()-verAt<60000||!navigator.onLine)return;verAt=Date.now();try{const t=await (await fetch('index.html',{cache:'no-store'})).text(),m=t.match(/const VERSION='([^']+)'/);if(!m||!verGt(m[1],VERSION)||m[1]==verNo)return;verAsk(m[1])}catch(_){}}
-function verAsk(v){if(peer||(g&&g.phase)||(TR&&TR.on)||$('sonv')||!$('ov').hidden){setTimeout(()=>verAsk(v),4000);return}const y=$('ovyes'),n=$('ovno'),back=()=>{y.textContent='OK';n.textContent='Annuler';n.onclick=()=>{$('ov').hidden=true}};n.style.display='';$('ovmsg').textContent=`🆕 Une nouvelle version de BuzzHit (${v}) est disponible. La mettre à jour maintenant ?`;$('ovinput').style.display='none';y.textContent='Mettre à jour';n.textContent='Plus tard';$('ov').hidden=false;y.onclick=()=>{$('ov').hidden=true;back();refreshApp()};n.onclick=()=>{$('ov').hidden=true;verNo=v;back()}}
+/* nouvelle version en ligne : mise à jour automatique, sans question, dès que l'appli est sur l'accueil et que rien n'est en cours
+   (partie, Défi, playlist, joueurs connectés) ; une seule tentative par version et par session, pour ne jamais tourner en boucle */
+function verAsk(v){if(peer||(g&&g.phase)||(TR&&TR.on)||!$('hm')||!$('ov').hidden||(typeof plOuv=='function'&&plOuv())){setTimeout(()=>verAsk(v),4000);return}
+let deja='';try{deja=sessionStorage.getItem('bt_vforce')||''}catch(_){}if(deja==v)return;try{sessionStorage.setItem('bt_vforce',v)}catch(_){}
+const sv=$('sonv');if(sv)sv.remove();A.innerHTML='<img class="logo" src="BuzzHit.png" alt="BuzzHit"><div class="card"><p class="big" style="text-align:center">🆕 Mise à jour de BuzzHit ('+v+')…</p><p class="m" style="text-align:center">Quelques secondes, l\'appli redémarre toute seule.</p></div>';
+(async()=>{try{if('caches' in window){const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)))}if('serviceWorker' in navigator){const r=await navigator.serviceWorker.getRegistrations();await Promise.all(r.map(x=>x.unregister()))}}catch(_){}location.replace(location.pathname+'?r='+Date.now()+location.hash)})()}
 addEventListener('load',()=>setTimeout(verCheck,1500));document.addEventListener('visibilitychange',()=>{if(document.visibilityState=='visible')verCheck()});
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').then(()=>rapSync()).catch(()=>{}));navigator.serviceWorker.addEventListener('message',ev=>{if(ev.data&&ev.data.defi)try{defiStart()}catch(_){}})}
 </script></body></html>
