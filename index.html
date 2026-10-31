@@ -111,7 +111,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.26';
+const VERSION='2.1.27';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -826,6 +826,8 @@ const DLOGO=new Image();DLOGO.src='BuzzHit.png';
 const DQR='1111111001101100001111111,1000001001110100001000001,1011101001101110001011101,1011101011110100001011101,1011101000010010001011101,1000001010111110001000001,1111111010101010101111111,0000000011101011100000000,0110001000101110101101000,1110110010101001011101011,1010101010000111101101101,0110110010101000110001000,0101011110101111001100001,0101000111000001111100011,1100011100101101010001101,0011000110100010001111000,1110111010011010111110010,0000000011001000100010001,1111111001111010101010001,1000001000111001100010011,1011101000010111111110011,1011101000101000010010110,1011101011111101000111011,1000001011001110101110000,1111111001010100110001001'.split(',');
 /* fond de l'image (lumières, téléphone, casque, barres de son), fichier defi-fond.jpg à côté de index.html */
 const DBG=new Image();DBG.src='defi-fond.jpg';
+/* Défi spécial Halloween (31/10 seulement) : fond Halloween avec le logo, fichier defi-fond-halloween.jpg ; chargé seulement ce jour-là */
+const DBGH=new Image();try{if(defiDay()==HAL_D)DBGH.src='defi-fond-halloween.jpg'}catch(_){}
 function defiImg(s){const W=1600,H=900,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d'),D=window.DFV||DFONT,F='"'+D.f+'","Segoe UI",Roboto,Helvetica,Arial,sans-serif',B=D.b,N=D.n,S=n=>D.sw+' '+n+'px "'+D.s+'",cursive',mx=DEFI_N*5,Y='#FFD21F';
 let sd=7;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
 /* trait de pinceau : bande aux bords irréguliers, extrémités effilées */
@@ -834,14 +836,15 @@ x.globalAlpha=(al||1)*.5;for(let k=0;k<3;k++){x.fillRect(X+w*.15+rnd()*w*.6,Yy+(
 const under=(X,Yy,w,col,lw)=>{x.save();x.strokeStyle=col;x.lineWidth=lw||8;x.lineCap='round';x.beginPath();x.moveTo(X,Yy);x.quadraticCurveTo(X+w*.5,Yy+12,X+w,Yy-8);x.stroke();x.restore()};
 const spark=(X,Yy,dir)=>{x.save();x.strokeStyle=Y;x.lineWidth=7;x.lineCap='round';[[-0.7,46],[0,52],[0.7,46]].forEach(([a,l])=>{const an=(dir<0?Math.PI:0)+a;x.beginPath();x.moveTo(X+Math.cos(an)*24,Yy+Math.sin(an)*24);x.lineTo(X+Math.cos(an)*l,Yy+Math.sin(an)*l);x.stroke()});x.restore()};
 const glow=(col,b)=>{x.shadowColor=col;x.shadowBlur=b};
-if(DBG.complete&&DBG.naturalWidth)x.drawImage(DBG,0,0,W,H);else{x.fillStyle='#070634';x.fillRect(0,0,W,H);if(DLOGO.complete&&DLOGO.naturalWidth)x.drawImage(DLOGO,40,30,380,380)}
+const hal=s.d==HAL_D;if(hal&&!DBGH.src)DBGH.src='defi-fond-halloween.jpg';const BG=hal&&DBGH.complete&&DBGH.naturalWidth?DBGH:DBG;
+if(BG.complete&&BG.naturalWidth)x.drawImage(BG,0,0,W,H);else{x.fillStyle='#070634';x.fillRect(0,0,W,H);if(DLOGO.complete&&DLOGO.naturalWidth)x.drawImage(DLOGO,40,30,380,380)}
 /* filigrane léger sur la partie droite */
 {const o=document.createElement('canvas');o.width=W-460;o.height=H-60;const q=o.getContext('2d');q.translate(o.width/2,o.height/2);q.rotate(-.35);q.font=B+' 24px '+F;q.textAlign='center';q.fillStyle='rgba(255,255,255,.07)';const wm=`BUZZ'HIT · ${s.p?s.p+' · ':''}${defiFr(s.d)} · ${s.score}/${mx}`;for(let r=-18;r<=18;r++)for(let k=-4;k<=4;k++)q.fillText(wm,k*440+(r%2?220:0),r*44);x.drawImage(o,460,0)}
 /* titre */
 brush(490,62,640,128,'rgba(8,6,30,.85)');spark(515,128,-1);spark(1150,118,1);
 x.save();x.translate(530,170);x.rotate(-.04);x.textAlign='left';x.fillStyle='#fff';glow('rgba(0,0,0,.6)',8);x.font=S(108);x.fillText('Défi du jour',0,0);x.shadowBlur=0;under(10,30,x.measureText('Défi du jour').width-20,Y,9);x.restore();
 /* date */
-{x.save();x.translate(1405,118);x.rotate(-.06);const g=x.createLinearGradient(-170,0,170,0);g.addColorStop(0,'#ff2fb0');g.addColorStop(1,'#a43cff');brush(-165,-45,330,86,g,.95);x.fillStyle='#fff';x.font=B+' 54px '+F;x.textAlign='center';x.fillText(defiFr(s.d),0,18);x.restore()}
+{x.save();x.translate(1405,118);x.rotate(-.06);const g=x.createLinearGradient(-170,0,170,0);g.addColorStop(0,hal?'#ff8a1f':'#ff2fb0');g.addColorStop(1,hal?'#c2410c':'#a43cff');brush(-165,-45,330,86,g,.95);x.fillStyle='#fff';x.font=B+' 54px '+F;x.textAlign='center';x.fillText(defiFr(s.d),0,18);x.restore()}
 /* cadre néon pseudo + score */
 {const bx=470,by=212,bw=1090,bh=178;x.save();x.beginPath();x.roundRect?x.roundRect(bx,by,bw,bh,24):x.rect(bx,by,bw,bh);x.fillStyle='rgba(6,4,30,.72)';x.fill();const g=x.createLinearGradient(bx,0,bx+bw,0);g.addColorStop(0,'#ff3fd0');g.addColorStop(.5,'#b45bff');g.addColorStop(1,'#ff6ae0');x.strokeStyle=g;x.lineWidth=6;glow('#ff3fd0',28);x.stroke();x.shadowBlur=14;x.stroke();x.restore();
 x.save();x.strokeStyle='rgba(255,255,255,.75)';x.lineWidth=3;x.beginPath();x.moveTo(830,240);x.lineTo(830,362);x.stroke();x.restore();
