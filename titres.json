@@ -7,7 +7,8 @@
   "year": 1960,
   "genre": "Pop",
   "langue": "Anglais",
-  "vol": 38
+  "vol": 38,
+  "debut": 1
  },
  {
   "id": "mul1832e",
@@ -746,13 +747,13 @@
  {
   "id": "mul1xva1",
   "vid": "O7fWpXclCVo",
-  "artist": "Adamo",
+  "artist": "Salvatore Adamo",
   "title": "Vous permettez, Monsieur ?",
   "year": 1964,
   "genre": "Variété / Chanson",
   "langue": "Français",
   "vol": 18,
-  "surnoms": "Salvatore Adamo"
+  "surnoms": "Adamo"
  },
  {
   "id": "mul18w2m",
@@ -3640,13 +3641,14 @@
  },
  {
   "id": "mul145gd",
-  "vid": "nseEtJOkpng",
+  "vid": "04854XqcfCY",
   "artist": "Queen",
   "title": "We Are the Champions",
   "year": 1977,
   "genre": "Rock & Alternatif / Metal",
   "langue": "Anglais",
-  "vol": 100
+  "vol": 90,
+  "debut": 3
  },
  {
   "id": "mul1jdtv",
@@ -4111,7 +4113,7 @@
  {
   "id": "mul1os6z",
   "vid": "w3syLw_FZaY",
-  "artist": "Telephone",
+  "artist": "Téléphone",
   "title": "Hygiaphone",
   "year": 1979,
   "genre": "Rock & Alternatif / Metal",
@@ -4121,7 +4123,7 @@
  {
   "id": "mul1ryg9",
   "vid": "lgfoOJziPfc",
-  "artist": "Telephone",
+  "artist": "Téléphone",
   "title": "La Bombe humaine",
   "year": 1979,
   "genre": "Rock & Alternatif / Metal",
@@ -4367,7 +4369,7 @@
  {
   "id": "mul1xd9c",
   "vid": "MY4OK0FXEYg",
-  "artist": "Telephone",
+  "artist": "Téléphone",
   "title": "Argent trop cher",
   "year": 1980,
   "genre": "Rock & Alternatif / Metal",
@@ -23547,5 +23549,116 @@
   "langue": "Anglais",
   "vol": 22,
   "defi": "2026-10-31"
+ },
+ {
+  "id": "oeCM3V2lqfw",
+  "vid": "oeCM3V2lqfw",
+  "artist": "Pierre Perret",
+  "title": "Les jolies colonies de vacances",
+  "year": 1966,
+  "genre": "Variété / Chanson",
+  "langue": "Français",
+  "vol": 19,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "VWpGMNfEmGs",
+  "vid": "VWpGMNfEmGs",
+  "artist": "Jean-Louis Aubert",
+  "title": "Juste une illusion",
+  "year": 1987,
+  "genre": "Rock & Alternatif / Metal",
+  "langue": "Français",
+  "vol": 35,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "ClpJVySy8Ts",
+  "vid": "ClpJVySy8Ts",
+  "artist": "Téléphone",
+  "title": "Le jour s'est levé",
+  "year": 1985,
+  "genre": "Rock & Alternatif / Metal",
+  "langue": "Français",
+  "vol": 73,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "KjP01gwxNSo",
+  "vid": "KjP01gwxNSo",
+  "artist": "Salvatore Adamo",
+  "title": "C'est ma vie",
+  "year": 1975,
+  "genre": "Variété / Chanson",
+  "langue": "Français",
+  "vol": 29,
+  "defi": "2026-11-02",
+  "surnoms": "Adamo"
+ },
+ {
+  "id": "-MelUSKWYFY",
+  "vid": "-MelUSKWYFY",
+  "artist": "Jeane Manson",
+  "title": "Avant de nous dire adieu",
+  "year": 1976,
+  "genre": "Variété / Chanson",
+  "langue": "Français",
+  "vol": 33,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "-UMlS5aqx28",
+  "vid": "-UMlS5aqx28",
+  "artist": "Jeane Manson",
+  "title": "Fais-moi danser",
+  "year": 1978,
+  "genre": "Variété / Chanson",
+  "langue": "Français",
+  "vol": 60,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "ufbyzIKRPjM",
+  "vid": "ufbyzIKRPjM",
+  "artist": "Jean-François Michaël",
+  "title": "Adieu jolie Candy",
+  "year": 1969,
+  "genre": "Variété / Chanson",
+  "langue": "Français",
+  "vol": 24,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "HW8FqUL7BSI",
+  "vid": "HW8FqUL7BSI",
+  "artist": "Talk Talk",
+  "title": "Such a Shame",
+  "year": 1984,
+  "genre": "Pop",
+  "langue": "Anglais",
+  "vol": 25,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "T9Jcs45GhxU",
+  "vid": "T9Jcs45GhxU",
+  "artist": "Chris de Burgh",
+  "title": "The Lady in Red",
+  "year": 1986,
+  "genre": "Pop",
+  "langue": "Anglais",
+  "vol": 100,
+  "defi": "2026-11-02"
+ },
+ {
+  "id": "9Q6YJ-r5SQs",
+  "vid": "9Q6YJ-r5SQs",
+  "artist": "Captain Sensible",
+  "title": "Wot",
+  "year": 1982,
+  "genre": "Pop",
+  "langue": "Anglais",
+  "vol": 100,
+  "defi": "2026-11-02"
  }
 ]
