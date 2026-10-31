@@ -112,7 +112,7 @@ html.hal .dfh{border-color:#ff8a1f;background:rgba(20,8,34,.92);box-shadow:0 0 1
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 // ===== NUMÉRO DE VERSION : à faire évoluer à chaque mise à jour de ce fichier (format x.y.z) =====
-const VERSION='2.1.33';
+const VERSION='2.1.34';
 // ====================================================================================================
 {const v=document.getElementById('ver');if(v)v.textContent=' - V'+VERSION}
 const $=id=>document.getElementById(id),A=$('app');
@@ -349,10 +349,12 @@ ${filtHTML()}
 <div class="row" style="margin-top:6px"><button class="p" onclick="add()">${editIdx>-1?'💾 Mettre à jour':'+ Ajouter'}</button>${editIdx>-1?'<button class="g" onclick="cancelEdit()">Annuler</button>':''}</div><p class="m" id="fm"></p></div>
 <div class="card"><h3>Coller une liste</h3><p class="m">Une ligne par titre : lien ; artiste ; titre ; année ; genre ; langue (tous les champs sont obligatoires)</p><textarea id="bl" rows="5" style="width:100%;background:#171329;color:#f3efe8;border:1px solid #352d54;border-radius:10px;padding:10px"></textarea><button class="p" style="margin-top:6px" onclick="bulk()">Importer</button><p class="m" id="bm"></p></div>
 <div class="card"><div class="row"><button onclick="exp()">⬇️ Exporter</button><label><button onclick="$('imp').click()" style="width:100%">⬆️ Importer</button></label></div><input id="imp" type="file" accept=".json" hidden onchange="imp(this)">
-<p class="m" style="margin-top:8px">${delCount()} titre(s) supprimé(s) localement sur cet appareil. <button class="g" onclick="resetDevice()">↺ Réinitialiser cet appareil</button></p></div>
+<p class="m" style="margin-top:8px">${delCount()} titre(s) supprimé(s) et ${addCount()} titre(s) ajouté(s) localement sur cet appareil, par rapport à la base officielle. <button class="g" onclick="resetDevice()">↺ Réinitialiser cet appareil</button></p></div>
 <div class="card"><h3>🚩 Signalements (${reports().length})</h3>${reports().length?reports().map(r=>`<div class="ld"><span>${e(r.artist)} — ${e(r.title)}<br><span class="m">${new Date(r.ts).toLocaleString('fr-FR')}${r.reason?' · '+e(r.reason):''}${r.sent?' · ✓ envoyé':''}</span></span></div>`).join('')+'<div class="row" style="margin-top:8px"><button class="g" onclick="exportReports()">⬇️ Exporter</button><button class="g" onclick="clearReports()">Effacer</button></div>':'<p class="m">Aucun signalement.</p>'}</div>
 <div class="card"><div class="row" style="align-items:center;margin-bottom:8px"><label class="m" style="flex:none">Trier par</label><select onchange="setSort(this.value)">${[['ajout','Ordre de la base'],['artiste','Artiste (A → Z)'],['titre','Titre (A → Z)'],['annee','Année (croissante)'],['annee-d','Année (décroissante)'],['genre','Genre'],['langue','Langue'],['statut','Ajoutés sur cet appareil (en premier)']].map(x=>`<option value="${x[0]}" ${SORT==x[0]?'selected':''}>${x[1]}</option>`).join('')}</select></div><input id="bq" type="search" placeholder="🔎 Rechercher un titre ou un artiste" value="${e(BQ)}" oninput="bSearch(this.value)" autocomplete="off" style="margin-bottom:8px"><p class="m" id="bqn"></p><div id="blist">${baseListHTML()}</div></div>`);if(tab=='g'){upd();if(g.phase=='ready')arm(g.next);else if(g.phase=='wait')mk(g.cur,(g.off||0)+g.pos,resume)}
 if(tab=='b'&&editIdx>-1){$('fu').value='https://www.youtube.com/watch?v='+DB[editIdx].vid;$('fa').value=DB[editIdx].artist;$('ft').value=DB[editIdx].title;$('fy').value=DB[editIdx].year;$('fg').value=DB[editIdx].genre||'';$('fl').value=DB[editIdx].langue?langNorm(DB[editIdx].langue):''}}
+/* titres ajoutés à la main sur cet appareil (absents de titres.json : pas de marque « base ») */
+function addCount(){try{return DB.filter(t=>!t.base).length}catch(_){return 0}}
 function delCount(){return JSON.parse(localStorage.getItem('bt_del')||'[]').length}
 function reports(){return JSON.parse(localStorage.getItem('bt_reports')||'[]')}
 const FORM='https://docs.google.com/forms/d/e/1FAIpQLSfTzdzy-ZOo9RsnZM9PHdxLgAJjoM4aOE9ZpF8fIicnmO_rfg/formResponse';
